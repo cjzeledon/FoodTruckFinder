@@ -1,4 +1,8 @@
 package com.theironyard.charlotte.FoodTruckFinder.repositories;
 
-public interface FoodTruckFinderRepository {
+import com.theironyard.charlotte.FoodTruckFinder.models.FoodTruckFinder;
+import org.springframework.data.repository.CrudRepository;
+
+public interface FoodTruckFinderRepository extends CrudRepository<FoodTruckFinder, Integer>{
+
 }
