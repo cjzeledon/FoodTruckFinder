@@ -1,7 +1,5 @@
 package com.theironyard.charlotte.FoodTruckFinder.models;
 
-import org.json.JSONObject;
-
 import java.util.List;
 
 public class YelpBusiness {
