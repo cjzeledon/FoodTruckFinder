@@ -10,7 +10,7 @@ public class YelpBusiness {
     private double rating;
     private int review_count;
     private String phone;
-//    private List<YelpHour> hours;
+    private List<YelpHour> hours;
     private YelpCoordinates coordinates;
     private YelpLocation location;
 
@@ -70,6 +70,14 @@ public class YelpBusiness {
         this.phone = phone;
     }
 
+    public List<YelpHour> getHours() {
+        return hours;
+    }
+
+    public void setHours(List<YelpHour> hours) {
+        this.hours = hours;
+    }
+
     public YelpCoordinates getCoordinates() {
         return coordinates;
     }
@@ -96,6 +104,7 @@ public class YelpBusiness {
                 ", rating=" + rating +
                 ", review_count=" + review_count +
                 ", phone='" + phone + '\'' +
+                ", hours=" + hours +
                 ", coordinates=" + coordinates +
                 ", location=" + location +
                 '}';
