@@ -1,14 +1,12 @@
 package com.theironyard.charlotte.FoodTruckFinder.controllers;
 
-import com.theironyard.charlotte.FoodTruckFinder.models.YelpBusiness;
-import com.theironyard.charlotte.FoodTruckFinder.models.YelpResponse;
+import com.theironyard.charlotte.FoodTruckFinder.models.yelp.YelpBusiness;
+import com.theironyard.charlotte.FoodTruckFinder.models.yelp.YelpResponse;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.List;
 
 
 @RestController

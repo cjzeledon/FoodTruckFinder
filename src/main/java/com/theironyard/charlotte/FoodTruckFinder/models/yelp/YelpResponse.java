@@ -1,6 +1,8 @@
-package com.theironyard.charlotte.FoodTruckFinder.models;
+package com.theironyard.charlotte.FoodTruckFinder.models.yelp;
 
-import java.util.Arrays;
+import com.theironyard.charlotte.FoodTruckFinder.models.yelp.YelpBusiness;
+import com.theironyard.charlotte.FoodTruckFinder.models.yelp.YelpRegion;
+
 import java.util.List;
 
 public class YelpResponse {

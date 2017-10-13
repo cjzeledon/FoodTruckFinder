@@ -1,4 +1,4 @@
-package com.theironyard.charlotte.FoodTruckFinder.models;
+package com.theironyard.charlotte.FoodTruckFinder.models.yelp;
 
 public class YelpOpenHour {
     private int day;

@@ -1,4 +1,4 @@
-package com.theironyard.charlotte.FoodTruckFinder.models;
+package com.theironyard.charlotte.FoodTruckFinder.models.yelp;
 
 public class YelpLocation {
     private String address1;

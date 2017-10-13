@@ -1,4 +1,4 @@
-package com.theironyard.charlotte.FoodTruckFinder.models;
+package com.theironyard.charlotte.FoodTruckFinder.models.yelp;
 
 import java.util.List;
 
