@@ -47,5 +47,4 @@ public class YelpController {
 
         return response;
     }
-
 }
