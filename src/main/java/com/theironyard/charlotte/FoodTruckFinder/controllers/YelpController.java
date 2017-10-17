@@ -14,6 +14,7 @@ public class YelpController {
 
     private static final String TOKEN = System.getenv("YELP_ACCESS_KEY");
 
+    @CrossOrigin
     @GetMapping("/foodtrucks")
     public YelpResponse foodTrucks (){
         RestTemplate yelpTemplate = new RestTemplate();
@@ -31,6 +32,7 @@ public class YelpController {
         return response;
     }
 
+    @CrossOrigin
     @GetMapping("/foodtrucks/{id}")
     public YelpBusiness oneFoodTruck(@PathVariable String id){
         RestTemplate yelpTemplate = new RestTemplate();
