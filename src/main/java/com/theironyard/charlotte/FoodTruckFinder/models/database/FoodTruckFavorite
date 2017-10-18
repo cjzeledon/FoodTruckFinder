@@ -4,15 +4,15 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "favorite")
-class FoodTruckFavorites {
+public class FoodTruckFavorites {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column
+    @Column (nullable = false)
     private int user_Id;
 
-    @Column
+    @Column (nullable = false)
     private int foodtruck_Id;
 
 //    @ManyToMany
