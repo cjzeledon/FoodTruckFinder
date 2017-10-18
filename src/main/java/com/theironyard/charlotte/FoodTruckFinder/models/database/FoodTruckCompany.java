@@ -1,16 +1,16 @@
-package com.theironyard.charlotte.FoodTruckFinder.models;
+package com.theironyard.charlotte.FoodTruckFinder.models.database;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "users")
-public class User {
+@Table(name = "food_truck")
+public class FoodTruckCompany {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(nullable = false)
-    private String userName;
+    private String companyName;
 
     @Column(nullable = false)
     private String email;
@@ -19,14 +19,14 @@ public class User {
     private String password;
 
     @Column(nullable = false)
-    private String userType;
+    private String foodType;
 
-    public User(int id, String userName, String email, String password, String userType) {
+    public FoodTruckCompany(int id, String companyName, String email, String password, String foodType) {
         this.id = id;
-        this.userName = userName;
+        this.companyName = companyName;
         this.email = email;
         this.password = password;
-        this.userType = userType;
+        this.foodType = foodType;
     }
 
     public int getId() {
@@ -37,12 +37,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getCompanyName() {
+        return companyName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 
     public String getEmail() {
@@ -61,11 +61,11 @@ public class User {
         this.password = password;
     }
 
-    public String getUserType() {
-        return userType;
+    public String getFoodType() {
+        return foodType;
     }
 
-    public void setUserType(String userType) {
-        this.userType = userType;
+    public void setFoodType(String foodType) {
+        this.foodType = foodType;
     }
 }

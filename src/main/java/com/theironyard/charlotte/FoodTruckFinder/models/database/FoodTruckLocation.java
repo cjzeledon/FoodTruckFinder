@@ -1,4 +1,4 @@
-package com.theironyard.charlotte.FoodTruckFinder.models;
+package com.theironyard.charlotte.FoodTruckFinder.models.database;
 
 import javax.persistence.*;
 import java.sql.Date;
