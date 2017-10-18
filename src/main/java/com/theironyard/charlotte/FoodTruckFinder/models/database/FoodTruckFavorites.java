@@ -15,14 +15,10 @@ public class FoodTruckFavorites {
     @Column (nullable = false)
     private int foodTruck_id;
 
-    @Column (nullable = false)
-    private String food_type;
-
     public FoodTruckFavorites(int id, int user_id, int foodTruck_id, String food_type) {
         this.id = id;
         this.user_id = user_id;
         this.foodTruck_id = foodTruck_id;
-        this.food_type = food_type;
     }
 
     public int getId() {
@@ -47,13 +43,5 @@ public class FoodTruckFavorites {
 
     public void setFoodTruck_id(int foodTruck_id) {
         this.foodTruck_id = foodTruck_id;
-    }
-
-    public String getFood_type() {
-        return food_type;
-    }
-
-    public void setFood_type(String food_type) {
-        this.food_type = food_type;
     }
 }
