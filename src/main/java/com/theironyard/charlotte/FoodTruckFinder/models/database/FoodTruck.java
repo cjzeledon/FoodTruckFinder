@@ -23,6 +23,9 @@ public class FoodTruck{
     private FoodTruckLocation location;
 
 
+    public FoodTruck() {
+    }
+
     public FoodTruck(int id, String name, String foodType, String yelpId) {
         this.id = id;
         this.name = name;
