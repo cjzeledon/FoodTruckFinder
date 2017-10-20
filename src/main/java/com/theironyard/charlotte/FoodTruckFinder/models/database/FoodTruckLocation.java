@@ -10,24 +10,41 @@ public class FoodTruckLocation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(nullable = false)
+    @Column (nullable = true, updatable = true)
+    private String address;
+
+    @Column(nullable = true, updatable = true)
     private double latitude;
 
-    @Column(nullable = false)
+    @Column(nullable = true, updatable = true)
     private double longitude;
 
-    @Column(nullable = false)
+    @Column(nullable = true, updatable = true)
     private Date startTime;
 
-    @Column(nullable = false)
+    @Column(nullable = true, updatable = true)
     private Date endTime;
 
-    public FoodTruckLocation(int id, double latitude, double longitude, Date startTime, Date endTime) {
+    public FoodTruckLocation(int id, double latitude, double longitude, Date startTime, Date endTime, String address) {
         this.id = id;
         this.latitude = latitude;
         this.longitude = longitude;
         this.startTime = startTime;
         this.endTime = endTime;
+        this.address = address;
+    }
+
+    //@OneToOne(optional=false)
+    //@JoinTable(name="food_truck")
+   // public FoodTruck getFoodTruck() { return FoodTruck; }
+    //this may not work. What is wrong here?
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public Date getStartTime() {

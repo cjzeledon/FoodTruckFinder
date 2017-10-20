@@ -1,7 +1,9 @@
 package com.theironyard.charlotte.FoodTruckFinder.repositories;
 
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-public interface FoodTruckLocationRepository {
+import com.theironyard.charlotte.FoodTruckFinder.models.database.FoodTruckLocation;
+import org.springframework.data.repository.CrudRepository;
+
+public interface FoodTruckLocationRepository
+        extends CrudRepository<FoodTruckLocation, Integer> {
 }
