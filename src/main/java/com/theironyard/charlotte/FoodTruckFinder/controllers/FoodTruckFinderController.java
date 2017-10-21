@@ -19,21 +19,22 @@ public class FoodTruckFinderController {
     UserRepository userRepo;
 
     @Autowired
-    FoodTruckRepository foodTruckRepository;
+    FoodTruckRepository foodTruckRepo;
 
-    @PostConstruct
-    public void init () {
+//    @PostConstruct
+//    public void init () {
+//
+//        // if there are no food trucks in the repository..
+//        if (foodTruckRepo.count() == 0) {
+//            FoodTruck t = new FoodTruck();
+//
+//            t.setFoodType();
+//            t.set
+//            foodTruckRepo.save(t);
+//        }
+//    }
 
-        // if there are no food trucks in the repository..
-        if (foodTruckRepository.count() == 0) {
-            FoodTruck t = new FoodTruck();
-
-            t.setFoodType();
-            t.set
-            foodTruckRepository.save(t);
-        }
-    }
-
+    // allow a user to log in if their information is found in the database
     @CrossOrigin
     @GetMapping("/signin")
     public String signIn(Model model, HttpSession session){
@@ -43,6 +44,8 @@ public class FoodTruckFinderController {
         return "index";
     }
 
+    // if the user has not created an account with the app, then allow them
+    //
     @CrossOrigin
     @PostMapping("signup")
     public String signUp(@RequestBody User createdUser, HttpSession session){
@@ -52,5 +55,10 @@ public class FoodTruckFinderController {
     }
 
 
+    @CrossOrigin
+    @PostMapping("/foodtruck")
+    public void foodTruck (@RequestBody FoodTruck truck){
+
+    }
 
 }

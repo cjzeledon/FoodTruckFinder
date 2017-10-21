@@ -32,15 +32,16 @@ public class GoogleController {
 // https://maps.googleapis.com/maps/api/directions/json?origin=35.2273,-80.8466&destination=35.1053,-80.646018&mode=walking&key=AIzaSyBRFlkrdZfBZpzGVglvLJG2LXnG4rgjaK0
 
     @CrossOrigin
-    @GetMapping("/directions/{id}")
+    @GetMapping("/directions/{truck_id}/")
     // business ID : frontend
     // origin lat: frontend
     // origin long: frontend
     // destination lat: backend
     // destination long: backend
-    public String walkingDirection (@RequestParam float lat, @RequestParam float lng){
+    public String walkingDirection (@RequestParam float lat, @RequestParam float lng,
+                                    @PathVariable String truck_id){
         RestTemplate googleTemplate = new RestTemplate();
-        String response = "https://maps.googleapis.com/maps/api/directions/json?origin=" + lat + lng + "&destination=Montreal&mode=" + travelMode + "&key=" + GTOKEN;
+        String response = "https://maps.googleapis.com/maps/api/directions/json?origin=" + lat + lng + "&destination=" + truck_id + "&mode=" + travelMode + "&key=" + GTOKEN;
 
         return response;
     }
