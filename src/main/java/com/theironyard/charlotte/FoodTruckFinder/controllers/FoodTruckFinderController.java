@@ -28,8 +28,10 @@ public class FoodTruckFinderController {
         if (foodTruckRepository.count() == 0) {
             FoodTruck t = new FoodTruck();
 
-            t.setFoodType();
-            t.set
+            t.setFoodType("tacos");
+            t.setYelpId("tin-kitchen-charlotte-2");
+            t.setName("TIN Kitchen");
+            t.setImageURL("https://s3-media3.fl.yelpcdn.com/bphoto/5U3u-sZ6Vx5oV9mdBw4-Ig/o.jpg");
             foodTruckRepository.save(t);
         }
     }
