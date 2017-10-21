@@ -16,18 +16,18 @@ import javax.servlet.http.HttpSession;
 public class FoodTruckFinderController {
 
     @Autowired
-    UserRepository userRepo;
+    FoodTruckRepository foodTruckRepository;
 
     @Autowired
-    FoodTruckRepository foodTruckRepository;
+    UserRepository userRepo;
 
     @PostConstruct
     public void init () {
 
         // if there are no food trucks in the repository..
         if (foodTruckRepository.count() == 0) {
-            FoodTruck t = new FoodTruck();
 
+            FoodTruck t = new FoodTruck();
             t.setFoodType("tacos");
             t.setYelpId("tin-kitchen-charlotte-2");
             t.setName("TIN Kitchen");
@@ -36,7 +36,28 @@ public class FoodTruckFinderController {
         }
     }
 
-    // allow a user to log in if their information is found in the database
+    @PostConstruct
+    public void fakeUser() {
+        if (userRepo.count() == 0) {
+
+            User u = new User();
+            u.setEmail("fakeUser1@foodtruckfinder.com");
+            u.setPassword("123");
+            u.setUserName("tacoGuy");
+            u.setUserType("owner");
+            userRepo.save(u);
+        }
+
+        if (userRepo.count() == 1){
+            User u = new User();
+            u.setEmail("fakeUser2@foodtruckfinder.com");
+            u.setPassword("abc");
+            u.setUserName("tachoLovin");
+            u.setUserType("customer");
+            userRepo.save(u);
+        }
+    }
+
     @CrossOrigin
     @GetMapping("/signin")
     public String signIn(Model model, HttpSession session){
@@ -46,8 +67,7 @@ public class FoodTruckFinderController {
         return "index";
     }
 
-    // if the user has not created an account with the app, then allow them
-    //
+
     @CrossOrigin
     @PostMapping("signup")
     public String signUp(@RequestBody User createdUser, HttpSession session){
