@@ -19,20 +19,22 @@ public class FoodTruckFinderController {
     UserRepository userRepo;
 
     @Autowired
-    FoodTruckRepository foodTruckRepo;
+    FoodTruckRepository foodTruckRepository;
 
-//    @PostConstruct
-//    public void init () {
-//
-//        // if there are no food trucks in the repository..
-//        if (foodTruckRepo.count() == 0) {
-//            FoodTruck t = new FoodTruck();
-//
-//            t.setFoodType();
-//            t.set
-//            foodTruckRepo.save(t);
-//        }
-//    }
+    @PostConstruct
+    public void init () {
+
+        // if there are no food trucks in the repository..
+        if (foodTruckRepository.count() == 0) {
+            FoodTruck t = new FoodTruck();
+
+            t.setFoodType("tacos");
+            t.setYelpId("tin-kitchen-charlotte-2");
+            t.setName("TIN Kitchen");
+            t.setImageURL("https://s3-media3.fl.yelpcdn.com/bphoto/5U3u-sZ6Vx5oV9mdBw4-Ig/o.jpg");
+            foodTruckRepository.save(t);
+        }
+    }
 
     // allow a user to log in if their information is found in the database
     @CrossOrigin
