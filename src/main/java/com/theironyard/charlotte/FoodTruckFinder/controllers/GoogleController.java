@@ -15,7 +15,7 @@ public class GoogleController {
     private static final String YTOKEN = System.getenv("YELP_ACCESS_KEY");
     private String travelMode = "walking"; // choose either driving, walking, bicycling, or transit
 
-    public void oneFoodTruck(@PathVariable String id){
+    public YelpCoordinates oneFoodTruck(@PathVariable String id){
         RestTemplate yelpTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.add(HttpHeaders.AUTHORIZATION, "Bearer " + YTOKEN);
@@ -35,7 +35,7 @@ public class GoogleController {
                         YelpBusiness.class)
                 .getBody().getCoordinates();
 
-
+        return response;
         }
 
 // https://maps.googleapis.com/maps/api/directions/json?origin=35.2273,-80.8466&destination=35.1053,-80.646018&mode=walking&key=AIzaSyBRFlkrdZfBZpzGVglvLJG2LXnG4rgjaK0
@@ -69,6 +69,7 @@ public class GoogleController {
 //                        GoogleDirection.class);
 //        return gResponse;
 
+        // ******************* THIRD TRY
         GoogleDirection gResponse = googleTemplate
                 .getForObject("https://maps.googleapis.com/maps/api/directions/json?origin=" + lat + lng + "&destination=" + truck_id + "&mode=" + travelMode + "&key=" + GTOKEN,
                         GoogleDirection.class);
