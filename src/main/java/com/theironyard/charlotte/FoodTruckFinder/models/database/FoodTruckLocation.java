@@ -25,6 +25,9 @@ public class FoodTruckLocation {
     @Column(nullable = true, updatable = true)
     private Date endTime;
 
+    public FoodTruckLocation() {
+    }
+
     public FoodTruckLocation(int id, double latitude, double longitude, Date startTime, Date endTime, String address) {
         this.id = id;
         this.latitude = latitude;
@@ -33,11 +36,6 @@ public class FoodTruckLocation {
         this.endTime = endTime;
         this.address = address;
     }
-
-    //@OneToOne(optional=false)
-    //@JoinTable(name="food_truck")
-   // public FoodTruck getFoodTruck() { return FoodTruck; }
-    //this may not work. What is wrong here?
 
     public String getAddress() {
         return address;
