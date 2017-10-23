@@ -183,21 +183,15 @@ public class FoodTruckFinderController {
     }
 
 //    @CrossOrigin
-//    @GetMapping("/foodtruck/all")
-//    public String getAllFoodTrucks(Model model){
-//        model.addAttribute("truckie", foodTruckRepo.findAll());
+//    @PatchMapping("/foodtruck/{id}")
+//    public void updateLocation(@RequestBody FoodTruckLocation loc,
+//                               @PathVariable("id") int truck_id){
+//        // find the food truck in question
+//        foodTruckRepo.findOne(truck_id);
+//        // save the location object
+//        // set the truck's location to that object
+//        // save the truck
 //    }
-
-    @CrossOrigin
-    @PatchMapping("/foodtruck/{id}")
-    public void updateLocation(@RequestBody FoodTruckLocation loc,
-                               @PathVariable("id") int truck_id){
-        // find the food truck in question
-        foodTruckRepo.findOne(truck_id);
-        // save the location object
-        // set the truck's location to that object
-        // save the truck
-    }
 
 
 }
