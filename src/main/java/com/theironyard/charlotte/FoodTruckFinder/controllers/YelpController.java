@@ -1,5 +1,7 @@
 package com.theironyard.charlotte.FoodTruckFinder.controllers;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.theironyard.charlotte.FoodTruckFinder.models.yelp.YelpBusiness;
 import com.theironyard.charlotte.FoodTruckFinder.models.yelp.YelpResponse;
 import org.springframework.http.HttpEntity;
@@ -7,6 +9,10 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 
 @RestController
@@ -16,6 +22,7 @@ public class YelpController {
 
     @CrossOrigin
     @GetMapping("/foodtrucks")
+
     public YelpResponse foodTrucks (){
         RestTemplate yelpTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
@@ -47,6 +54,25 @@ public class YelpController {
                         YelpBusiness.class)
                 .getBody();
 
+        return response;
+    }
+
+    @CrossOrigin
+    @GetMapping("/foodtrucks/reviews")
+    public JsonNode yelpReviews(@RequestParam String id) throws IOException {
+        RestTemplate yelpTemplate = new RestTemplate();
+        HttpHeaders headers = new HttpHeaders();
+        headers.add(HttpHeaders.AUTHORIZATION, "Bearer " + YTOKEN);
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        JsonNode response = yelpTemplate
+                .exchange("https://api.yelp.com/v3/businesses/" + id + "/reviews",
+                        HttpMethod.GET,
+                        entity,
+                        JsonNode.class)
+                .getBody();
         return response;
     }
 }
