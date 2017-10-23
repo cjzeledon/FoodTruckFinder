@@ -101,7 +101,6 @@ public class FoodTruckFinderController {
         // find the food truck in question
         foodTruckRepo.findOne(truck_id);
         // save the location object
-
         // set the truck's location to that object
         // save the truck
     }
