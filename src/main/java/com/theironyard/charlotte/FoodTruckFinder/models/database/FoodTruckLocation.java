@@ -87,4 +87,12 @@ public class FoodTruckLocation {
     public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
+
+    public FoodTruck getFoodTruck() {
+        return foodTruck;
+    }
+
+    public void setFoodTruck(FoodTruck foodTruck) {
+        this.foodTruck = foodTruck;
+    }
 }
