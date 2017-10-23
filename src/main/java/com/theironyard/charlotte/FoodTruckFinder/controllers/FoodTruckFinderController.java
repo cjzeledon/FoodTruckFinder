@@ -1,38 +1,44 @@
 package com.theironyard.charlotte.FoodTruckFinder.controllers;
 
 import com.theironyard.charlotte.FoodTruckFinder.models.database.FoodTruck;
+import com.theironyard.charlotte.FoodTruckFinder.models.database.FoodTruckLocation;
 import com.theironyard.charlotte.FoodTruckFinder.models.database.User;
+import com.theironyard.charlotte.FoodTruckFinder.repositories.FoodTruckLocationRepository;
 import com.theironyard.charlotte.FoodTruckFinder.repositories.FoodTruckRepository;
 import com.theironyard.charlotte.FoodTruckFinder.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpSession;
+import java.awt.*;
 
 @RestController
 public class FoodTruckFinderController {
 
     @Autowired
-    FoodTruckRepository foodTruckRepository;
+    FoodTruckRepository foodTruckRepo;
 
     @Autowired
     UserRepository userRepo;
+
+    @Autowired
+    FoodTruckLocationRepository locationRepo;
 
     @PostConstruct
     public void init () {
 
         // if there are no food trucks in the repository..
-        if (foodTruckRepository.count() == 0) {
+        if (foodTruckRepo.count() == 0) {
 
             FoodTruck t = new FoodTruck();
             t.setFoodType("tacos");
             t.setYelpId("tin-kitchen-charlotte-2");
             t.setName("TIN Kitchen");
             t.setImageURL("https://s3-media3.fl.yelpcdn.com/bphoto/5U3u-sZ6Vx5oV9mdBw4-Ig/o.jpg");
-            foodTruckRepository.save(t);
+            foodTruckRepo.save(t);
         }
     }
 
@@ -67,7 +73,6 @@ public class FoodTruckFinderController {
         return "index";
     }
 
-
     @CrossOrigin
     @PostMapping("signup")
     public String signUp(@RequestBody User createdUser, HttpSession session){
@@ -76,11 +81,29 @@ public class FoodTruckFinderController {
         return "/";
     }
 
+    @CrossOrigin
+    @PostMapping("/foodtruck/add")
+    public void addFoodTruck(FoodTruck truck){
+        foodTruckRepo.save(truck);
+        // Make sure the Frontend team knows that
+        // the form must use the specific key such as:
+        // name
+        // foodType
+        // yelpId
+        // imageURL
+        // url
+    }
 
     @CrossOrigin
-    @PostMapping("/foodtruck")
-    public void foodTruck (@RequestBody FoodTruck truck){
+    @PatchMapping("/foodtruck/{id}")
+    public void updateLocation(@RequestBody FoodTruckLocation loc,
+                               @PathVariable("id") int truck_id){
+        // find the food truck in question
+        foodTruckRepo.findOne(truck_id);
+        // save the location object
 
+        // set the truck's location to that object
+        // save the truck
     }
 
 }
