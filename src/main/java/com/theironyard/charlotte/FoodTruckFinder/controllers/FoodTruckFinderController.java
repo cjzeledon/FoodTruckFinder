@@ -7,13 +7,11 @@ import com.theironyard.charlotte.FoodTruckFinder.repositories.FoodTruckLocationR
 import com.theironyard.charlotte.FoodTruckFinder.repositories.FoodTruckRepository;
 import com.theironyard.charlotte.FoodTruckFinder.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpSession;
-import java.awt.*;
 
 @RestController
 public class FoodTruckFinderController {
@@ -85,14 +83,19 @@ public class FoodTruckFinderController {
     @PostMapping("/foodtruck/add")
     public void addFoodTruck(FoodTruck truck){
         foodTruckRepo.save(truck);
-        // Make sure the Frontend team knows that
-        // the form must use the specific key such as:
-        // name
-        // foodType
-        // yelpId
-        // imageURL
-        // url
     }
+
+    @CrossOrigin
+    @GetMapping("/foodtruck/all")
+    public Iterable<FoodTruck> getAllFoodTrucks(){
+        return foodTruckRepo.findAll();
+    }
+
+//    @CrossOrigin
+//    @GetMapping("/foodtruck/all")
+//    public String getAllFoodTrucks(Model model){
+//        model.addAttribute("truckie", foodTruckRepo.findAll());
+//    }
 
     @CrossOrigin
     @PatchMapping("/foodtruck/{id}")
@@ -104,5 +107,6 @@ public class FoodTruckFinderController {
         // set the truck's location to that object
         // save the truck
     }
+
 
 }
