@@ -25,6 +25,9 @@ public class FoodTruckLocation {
     @Column(nullable = true, updatable = true)
     private Date endTime;
 
+    @OneToOne
+    private FoodTruck foodTruck;
+
     public FoodTruckLocation() {
     }
 

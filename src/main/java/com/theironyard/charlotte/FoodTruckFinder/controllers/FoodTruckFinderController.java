@@ -36,12 +36,11 @@ public class FoodTruckFinderController {
             t.setYelpId("tin-kitchen-charlotte-2");
             t.setName("TIN Kitchen");
             t.setImageURL("https://s3-media3.fl.yelpcdn.com/bphoto/5U3u-sZ6Vx5oV9mdBw4-Ig/o.jpg");
-<<<<<<< HEAD
             t.setUrl("https://www.yelp.com/biz/tin-kitchen-charlotte-2?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
-            foodTruckRepository.save(t);
+            foodTruckRepo.save(t);
         }
 
-        if (foodTruckRepository.count() == 1) {
+        if (foodTruckRepo.count() == 1) {
 
             FoodTruck t = new FoodTruck();
             t.setFoodType("grilled cheese");
@@ -49,40 +48,39 @@ public class FoodTruckFinderController {
             t.setName("Papi Queso");
             t.setImageURL("https://s3-media3.fl.yelpcdn.com/bphoto/zlq_gcqvoxY3TGVyMaPg9g/o.jpg");
             t.setUrl("https://www.yelp.com/biz/papi-queso-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
-            foodTruckRepository.save(t);
-=======
             foodTruckRepo.save(t);
->>>>>>> a771f6ad0e4aed09c7435cd55af59c8fd77dba64
+
+            foodTruckRepo.save(t);
         }
 
-        if (foodTruckRepository.count() == 2) {
+        if (foodTruckRepo.count() == 2) {
             FoodTruck t = new FoodTruck();
             t.setFoodType("Halal");
             t.setName("Mi Barrio's Halal Cart");
             t.setYelpId("mi-barrios-halal-cart-chalotte");
             t.setImageURL("https://s3-media4.fl.yelpcdn.com/bphoto/GQMfzEetRC-WNlPRBiheMA/o.jpg");
             t.setUrl("https://www.yelp.com/biz/mi-barrios-halal-cart-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
-            foodTruckRepository.save(t);
+            foodTruckRepo.save(t);
         }
 
-        if (foodTruckRepository.count() == 3) {
+        if (foodTruckRepo.count() == 3) {
             FoodTruck t = new FoodTruck();
             t.setFoodType("All");
             t.setName("Food Truck Friday Charlotte");
             t.setYelpId("food-truck-friday-charlotte-charlotte");
             t.setImageURL("https://s3-media3.fl.yelpcdn.com/bphoto/xUiSXQo8Dr0QV8-SiwjxyA/o.jpg");
             t.setUrl("https://www.yelp.com/biz/food-truck-friday-charlotte-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
-            foodTruckRepository.save(t);
+            foodTruckRepo.save(t);
         }
 
-        if (foodTruckRepository.count() == 4) {
+        if (foodTruckRepo.count() == 4) {
             FoodTruck t = new FoodTruck();
             t.setFoodType("sandwiches");
             t.setName("The Cookin Coop");
             t.setYelpId("the-cookin-coop-charlotte");
             t.setImageURL("https://s3-media1.fl.yelpcdn.com/bphoto/DpOmefPgbOIoP-cJqUBlRw/o.jpg");
             t.setUrl("https://www.yelp.com/biz/the-cookin-coop-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
-            foodTruckRepository.save(t);
+            foodTruckRepo.save(t);
         }
 
     }
