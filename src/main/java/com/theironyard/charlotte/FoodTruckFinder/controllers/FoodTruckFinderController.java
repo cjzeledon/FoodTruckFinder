@@ -7,7 +7,6 @@ import com.theironyard.charlotte.FoodTruckFinder.repositories.FoodTruckLocationR
 import com.theironyard.charlotte.FoodTruckFinder.repositories.FoodTruckRepository;
 import com.theironyard.charlotte.FoodTruckFinder.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +17,7 @@ import javax.servlet.http.HttpSession;
 public class FoodTruckFinderController {
 
     @Autowired
-    FoodTruckRepository foodTruckRepository;
+    FoodTruckRepository foodTruckRepo;
 
     @Autowired
     UserRepository userRepo;
@@ -30,13 +29,14 @@ public class FoodTruckFinderController {
     public void init () {
 
         // if there are no food trucks in the repository..
-        if (foodTruckRepository.count() == 0) {
+        if (foodTruckRepo.count() == 0) {
 
             FoodTruck t = new FoodTruck();
             t.setFoodType("tacos");
             t.setYelpId("tin-kitchen-charlotte-2");
             t.setName("TIN Kitchen");
             t.setImageURL("https://s3-media3.fl.yelpcdn.com/bphoto/5U3u-sZ6Vx5oV9mdBw4-Ig/o.jpg");
+<<<<<<< HEAD
             t.setUrl("https://www.yelp.com/biz/tin-kitchen-charlotte-2?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
             foodTruckRepository.save(t);
         }
@@ -50,6 +50,9 @@ public class FoodTruckFinderController {
             t.setImageURL("https://s3-media3.fl.yelpcdn.com/bphoto/zlq_gcqvoxY3TGVyMaPg9g/o.jpg");
             t.setUrl("https://www.yelp.com/biz/papi-queso-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
             foodTruckRepository.save(t);
+=======
+            foodTruckRepo.save(t);
+>>>>>>> a771f6ad0e4aed09c7435cd55af59c8fd77dba64
         }
 
         if (foodTruckRepository.count() == 2) {
@@ -126,7 +129,6 @@ public class FoodTruckFinderController {
         return "index";
     }
 
-
     @CrossOrigin
     @PostMapping("signup")
     public String signUp(@RequestBody User createdUser, HttpSession session){
@@ -135,11 +137,34 @@ public class FoodTruckFinderController {
         return "/";
     }
 
+    @CrossOrigin
+    @PostMapping("/foodtruck/add")
+    public void addFoodTruck(FoodTruck truck){
+        foodTruckRepo.save(truck);
+    }
 
     @CrossOrigin
-    @PostMapping("/foodtruck")
-    public void foodTruck (@RequestBody FoodTruck truck){
-
+    @GetMapping("/foodtruck/all")
+    public Iterable<FoodTruck> getAllFoodTrucks(){
+        return foodTruckRepo.findAll();
     }
+
+//    @CrossOrigin
+//    @GetMapping("/foodtruck/all")
+//    public String getAllFoodTrucks(Model model){
+//        model.addAttribute("truckie", foodTruckRepo.findAll());
+//    }
+
+    @CrossOrigin
+    @PatchMapping("/foodtruck/{id}")
+    public void updateLocation(@RequestBody FoodTruckLocation loc,
+                               @PathVariable("id") int truck_id){
+        // find the food truck in question
+        foodTruckRepo.findOne(truck_id);
+        // save the location object
+        // set the truck's location to that object
+        // save the truck
+    }
+
 
 }
