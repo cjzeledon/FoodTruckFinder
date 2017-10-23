@@ -1,8 +1,11 @@
 package com.theironyard.charlotte.FoodTruckFinder.models.google;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.HashMap;
 import java.util.Map;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Distance {
 
     private String text;

@@ -1,10 +1,13 @@
 package com.theironyard.charlotte.FoodTruckFinder.models.google;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class GeocodedWaypoint {
 
     private String geocoderStatus;

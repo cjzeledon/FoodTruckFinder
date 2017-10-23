@@ -1,8 +1,11 @@
 package com.theironyard.charlotte.FoodTruckFinder.models.google;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.HashMap;
 import java.util.Map;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class EndLocation {
 
     private Double lat;
@@ -12,11 +15,6 @@ public class EndLocation {
     public EndLocation() {
     }
 
-    /**
-     *
-     * @param lng
-     * @param lat
-     */
     public EndLocation(Double lat, Double lng) {
         super();
         this.lat = lat;
