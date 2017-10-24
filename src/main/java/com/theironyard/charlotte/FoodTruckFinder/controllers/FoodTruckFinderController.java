@@ -151,18 +151,13 @@ public class FoodTruckFinderController {
         }
     }
 
-<<<<<<< HEAD
     // Example of how the URL looks when using this /signin?id=2
-=======
-
-
->>>>>>> 2a9585ed532577a21d7bc48e756ae1681f7be055
     @CrossOrigin
     @GetMapping("/signin")
     public String signIn(Model model, @RequestParam Integer id, HttpSession session){
         if (session.getAttribute("current_user") == null){
             return "signup";
-        } else if {
+        } else {
             userRepo.findOne(id).getUserName();
             userRepo.findOne(id).getPassword();
             session.setAttribute("current_user", model);
