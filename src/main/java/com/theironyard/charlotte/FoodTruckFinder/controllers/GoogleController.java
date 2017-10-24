@@ -2,7 +2,6 @@ package com.theironyard.charlotte.FoodTruckFinder.controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.theironyard.charlotte.FoodTruckFinder.models.google.GoogleDirection;
 import com.theironyard.charlotte.FoodTruckFinder.models.yelp.YelpBusiness;
 import com.theironyard.charlotte.FoodTruckFinder.models.yelp.YelpCoordinates;
 import org.springframework.http.HttpEntity;
@@ -52,19 +51,17 @@ public class GoogleController {
 
     }
 
-/*
-// This is another option that also works to get the direction
-@CrossOrigin
-// /directions/-35.232,81.03423/-35.44,81.200
-// /directions?origin=-35.232,81.03423&destination=-35.44,81.200
-@GetMapping("/directions")
-public JsonNode walkingDirection (@RequestParam String origin, @RequestParam String destination) throws IOException {
-
-ObjectMapper mapper = new ObjectMapper();
-
-URL url = new URL("https://maps.googleapis.com/maps/api/directions/json?origin=" + origin + "&destination=" + destination + "&mode=" + travelMode + "&key=" + GTOKEN);
-JsonNode gDirection = mapper.readValue(url, JsonNode.class);
-return gDirection;
-}
-*/
+    /*
+    // This is another option that also works to get the direction
+        // /directions/-35.232,81.03423/-35.44,81.200
+        // /directions?origin=-35.232,81.03423&destination=-35.44,81.200
+    @CrossOrigin
+    @GetMapping("/directions")
+    public JsonNode walkingDirection (@RequestParam String origin, @RequestParam String destination) throws IOException {
+    ObjectMapper mapper = new ObjectMapper();
+    URL url = new URL("https://maps.googleapis.com/maps/api/directions/json?origin=" + origin + "&destination=" + destination + "&mode=" + travelMode + "&key=" + GTOKEN);
+    JsonNode gDirection = mapper.readValue(url, JsonNode.class);
+    return gDirection;
+    }
+    */
 }

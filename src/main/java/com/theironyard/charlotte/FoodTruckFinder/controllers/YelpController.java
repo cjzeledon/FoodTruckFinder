@@ -22,7 +22,6 @@ public class YelpController {
 
     @CrossOrigin
     @GetMapping("/foodtrucks")
-
     public YelpResponse foodTrucks (){
         RestTemplate yelpTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
