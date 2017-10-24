@@ -65,8 +65,6 @@ public class YelpController {
         headers.add(HttpHeaders.AUTHORIZATION, "Bearer " + YTOKEN);
         HttpEntity<String> entity = new HttpEntity<>(headers);
 
-        ObjectMapper mapper = new ObjectMapper();
-
         JsonNode response = yelpTemplate
                 .exchange("https://api.yelp.com/v3/businesses/" + id + "/reviews",
                         HttpMethod.GET,

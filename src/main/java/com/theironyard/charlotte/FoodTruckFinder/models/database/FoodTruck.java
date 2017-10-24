@@ -29,6 +29,7 @@ public class FoodTruck{
     private FoodTruckLocation location;
 
 
+
     public FoodTruck() {
     }
 
@@ -91,5 +92,9 @@ public class FoodTruck{
     public void setYelpId(String yelpId) {
         this.yelpId = yelpId;
 
+    }
+
+    public void setLocation(FoodTruckLocation location) {
+        this.location = location;
     }
 }
