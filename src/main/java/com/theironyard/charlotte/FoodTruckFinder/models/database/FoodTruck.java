@@ -93,4 +93,8 @@ public class FoodTruck{
         this.yelpId = yelpId;
 
     }
+
+    public void setLocation(FoodTruckLocation location) {
+        this.location = location;
+    }
 }
