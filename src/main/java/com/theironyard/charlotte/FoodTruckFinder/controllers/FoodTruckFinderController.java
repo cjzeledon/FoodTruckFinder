@@ -3,6 +3,7 @@ package com.theironyard.charlotte.FoodTruckFinder.controllers;
 import com.theironyard.charlotte.FoodTruckFinder.models.database.FoodTruck;
 import com.theironyard.charlotte.FoodTruckFinder.models.database.FoodTruckLocation;
 import com.theironyard.charlotte.FoodTruckFinder.models.database.User;
+import com.theironyard.charlotte.FoodTruckFinder.models.database.UserType;
 import com.theironyard.charlotte.FoodTruckFinder.repositories.FoodTruckLocationRepository;
 import com.theironyard.charlotte.FoodTruckFinder.repositories.FoodTruckRepository;
 import com.theironyard.charlotte.FoodTruckFinder.repositories.UserRepository;
@@ -170,20 +171,6 @@ public class FoodTruckFinderController {
         return foodTruckRepo.findAll();
     }
 
-//    @CrossOrigin
-//    @PatchMapping("/foodtruck/{id}")
-//    public void updateLocation(@RequestBody FoodTruckLocation loc,
-//                               @PathVariable("id") int truck_id){
-//        // find the food truck in question
-//        FoodTruck truck = foodTruckRepo.findOne(truck_id);
-//
-//        // save the location object
-//        locationRepo.save(loc);
-//
-//        // set the truck's location to that object
-//        // save the truck
-//    }
-
     @CrossOrigin
     @PostMapping("/login")
     public void logIn(@RequestBody User user, HttpSession session, HttpServletResponse response) throws IOException {
@@ -210,7 +197,37 @@ public class FoodTruckFinderController {
         }
     }
 
+    @CrossOrigin
+    @GetMapping("/user")
+    public User getUser(HttpSession session) {
+        return (User)session.getAttribute(USER_KEY);
+    }
 
+    @CrossOrigin
+    @PostMapping("/user/foodtruck/add")
+    public void addFoodTruckToOwner(@RequestBody FoodTruck foodtruck, HttpSession session, HttpServletResponse response) throws IOException {
+        // get the user's ID in the current session
+        User u = (User)session.getAttribute(USER_KEY);
 
+        // If the user is an owner, add/link their food truck information
+        if (u.getUserType().equals(UserType.owner)) {
+            foodtruck.setUser(u);
+            foodTruckRepo.save(foodtruck);
+            // If the user is NOT an owner, they will receive an error
+        } else {
+            response.sendError(422, "User is not a restaurant owner and cannot add a food truck.");
+        }
+    }
 
+    @CrossOrigin
+    @PatchMapping("/user/foodtruck/location")
+    public void updateLocation(@RequestBody FoodTruckLocation loc, FoodTruck foodtruck, HttpSession session){
+
+        User u = (User)session.getAttribute(USER_KEY);
+        foodtruck = foodTruckRepo.findFirstByName(foodtruck.getName());
+        foodtruck.setLocation(loc);
+        locationRepo.save(loc);
+        foodTruckRepo.save(foodtruck);
+
+    }
 }
