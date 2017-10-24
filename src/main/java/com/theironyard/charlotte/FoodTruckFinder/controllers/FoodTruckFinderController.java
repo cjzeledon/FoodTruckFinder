@@ -189,22 +189,23 @@ public class FoodTruckFinderController {
         if (repoUser != null){
             session.setAttribute(USER_KEY, repoUser);
         } else{
-            response.sendRedirect("/signup");
+            response.sendError(401, "You have not created account with this application. Please sign up.");
         }
     }
 
     @CrossOrigin
     @PostMapping("/signup")
     public void signUp(@RequestBody User newUser, HttpSession session, HttpServletResponse response) throws IOException {
-        if (userRepo.findFirstByUserName(newUser.getUserName()) == null){
-            userRepo.save(newUser);
-            session.getAttribute(USER_KEY);
-        } else{
+        if (userRepo.findFirstByUserName(newUser.getUserName()) == null) {
+            session.setAttribute(USER_KEY, userRepo.save(newUser));
+        } else {
             // An error found when a user tries to create an account with a username that
             // already exists in the database
             response.sendError(422, "Username already exists. Please try again.");
         }
     }
+
+
 
 
 }

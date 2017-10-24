@@ -28,8 +28,6 @@ public class FoodTruck{
     @OneToOne
     private FoodTruckLocation location;
 
-
-
     public FoodTruck() {
     }
 
