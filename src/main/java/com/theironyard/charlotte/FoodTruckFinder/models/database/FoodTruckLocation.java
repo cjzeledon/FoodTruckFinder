@@ -1,5 +1,8 @@
 package com.theironyard.charlotte.FoodTruckFinder.models.database;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.sql.Date;
 
@@ -26,6 +29,7 @@ public class FoodTruckLocation {
     private Date endTime;
 
     @OneToOne
+    @JsonIgnore //will not include the food truck property in json to avoid creating an infinite loop
     private FoodTruck foodTruck;
 
     public FoodTruckLocation() {

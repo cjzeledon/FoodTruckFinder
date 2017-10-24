@@ -51,10 +51,11 @@ public class FoodTruckFinderController {
             t.setName("Papi Queso");
             t.setImageURL("https://s3-media3.fl.yelpcdn.com/bphoto/zlq_gcqvoxY3TGVyMaPg9g/o.jpg");
             t.setUrl("https://www.yelp.com/biz/papi-queso-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
+            t.setLocation(locationRepo.findOne(2));
             foodTruckRepo.save(t);
 
-
         }
+
 
         if (foodTruckRepo.count() == 2) {
             FoodTruck t = new FoodTruck();
@@ -63,6 +64,7 @@ public class FoodTruckFinderController {
             t.setYelpId("mi-barrios-halal-cart-chalotte");
             t.setImageURL("https://s3-media4.fl.yelpcdn.com/bphoto/GQMfzEetRC-WNlPRBiheMA/o.jpg");
             t.setUrl("https://www.yelp.com/biz/mi-barrios-halal-cart-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
+            t.setLocation(locationRepo.findOne(3));
             foodTruckRepo.save(t);
         }
 
@@ -73,6 +75,7 @@ public class FoodTruckFinderController {
             t.setYelpId("food-truck-friday-charlotte-charlotte");
             t.setImageURL("https://s3-media3.fl.yelpcdn.com/bphoto/xUiSXQo8Dr0QV8-SiwjxyA/o.jpg");
             t.setUrl("https://www.yelp.com/biz/food-truck-friday-charlotte-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
+            t.setLocation(locationRepo.findOne(4));
             foodTruckRepo.save(t);
         }
 
@@ -83,6 +86,7 @@ public class FoodTruckFinderController {
             t.setYelpId("the-cookin-coop-charlotte");
             t.setImageURL("https://s3-media1.fl.yelpcdn.com/bphoto/DpOmefPgbOIoP-cJqUBlRw/o.jpg");
             t.setUrl("https://www.yelp.com/biz/the-cookin-coop-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
+            t.setLocation(locationRepo.findOne(5));
             foodTruckRepo.save(t);
         }
 
@@ -97,6 +101,7 @@ public class FoodTruckFinderController {
             u.setPassword("123");
             u.setUserName("tacoGuy");
             u.setUserType("owner");
+            u.setFoodTruck(foodTruckRepo.findOne(1));
             userRepo.save(u);
         }
 

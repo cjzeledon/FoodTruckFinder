@@ -1,5 +1,7 @@
 package com.theironyard.charlotte.FoodTruckFinder.models.database;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -25,6 +27,7 @@ public class User {
     }
 
     @OneToOne
+    @JsonIgnore //will not include the food truck property in json to avoid creating an infinite loop
     private FoodTruck foodTruck;
 
     public User(int id, String userName, String email, String password, String userType) {
@@ -33,6 +36,14 @@ public class User {
         this.email = email;
         this.password = password;
         this.userType = userType;
+    }
+
+    public FoodTruck getFoodTruck() {
+        return foodTruck;
+    }
+
+    public void setFoodTruck(FoodTruck foodTruck) {
+        this.foodTruck = foodTruck;
     }
 
     public int getId() {
