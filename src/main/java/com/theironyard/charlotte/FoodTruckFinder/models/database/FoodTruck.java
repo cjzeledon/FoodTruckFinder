@@ -28,7 +28,7 @@ public class FoodTruck{
     @OneToOne(mappedBy = "foodTruck")
     private FoodTruckLocation location;
 
-    @OneToMany(mappedBy = "foodTruck")
+    @OneToOne(mappedBy = "foodTruck")
     private User user;
 
 

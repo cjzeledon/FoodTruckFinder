@@ -1,5 +1,4 @@
 package com.theironyard.charlotte.FoodTruckFinder.controllers;
-
 import com.theironyard.charlotte.FoodTruckFinder.models.database.FoodTruck;
 import com.theironyard.charlotte.FoodTruckFinder.models.database.FoodTruckFavorite;
 import com.theironyard.charlotte.FoodTruckFinder.models.database.FoodTruckLocation;
@@ -11,7 +10,6 @@ import com.theironyard.charlotte.FoodTruckFinder.repositories.FoodTruckRepositor
 import com.theironyard.charlotte.FoodTruckFinder.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
