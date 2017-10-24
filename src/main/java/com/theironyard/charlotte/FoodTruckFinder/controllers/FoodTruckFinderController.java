@@ -11,10 +11,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
 @RestController
 public class FoodTruckFinderController {
+    private final String USER_KEY = "user";
 
     @Autowired
     FoodTruckRepository foodTruckRepo;
@@ -151,27 +154,27 @@ public class FoodTruckFinderController {
         }
     }
 
-    // Example of how the URL looks when using this /signin?id=2
-    @CrossOrigin
-    @GetMapping("/signin")
-    public String signIn(Model model, @RequestParam Integer id, HttpSession session){
-        if (session.getAttribute("current_user") == null){
-            return "signup";
-        } else {
-            userRepo.findOne(id).getUserName();
-            userRepo.findOne(id).getPassword();
-            session.setAttribute("current_user", model);
-        }
-        return "index";
-    }
+//    // Example of how the URL looks when using this /signin?id=2
+//    @CrossOrigin
+//    @GetMapping("/signin")
+//    public String signIn(Model model, @RequestParam Integer id, HttpSession session){
+//        if (session.getAttribute("current_user") == null){
+//            return "signup";
+//        } else {
+//            userRepo.findOne(id).getUserName();
+//            userRepo.findOne(id).getPassword();
+//            session.setAttribute("current_user", model);
+//        }
+//        return "index";
+//    }
 
-    @CrossOrigin
-    @PostMapping("signup")
-    public String signUp(@RequestBody User newUser, HttpSession session){
-        userRepo.save(newUser);
-        session.setAttribute("current_user", newUser);
-        return "/";
-    }
+//    @CrossOrigin
+//    @PostMapping("signup")
+//    public String signUp(@RequestBody User newUser, HttpSession session){
+//        userRepo.save(newUser);
+//        session.setAttribute("current_user", newUser);
+//        return "/";
+//    }
 
     @CrossOrigin
     @PostMapping("/foodtruck/add")
@@ -185,18 +188,45 @@ public class FoodTruckFinderController {
         return foodTruckRepo.findAll();
     }
 
+//    @CrossOrigin
+//    @PatchMapping("/foodtruck/{id}")
+//    public void updateLocation(@RequestBody FoodTruckLocation loc,
+//                               @PathVariable("id") int truck_id){
+//        // find the food truck in question
+//        FoodTruck truck = foodTruckRepo.findOne(truck_id);
+//
+//        // save the location object
+//        locationRepo.save(loc);
+//
+//        // set the truck's location to that object
+//        // save the truck
+//    }
+
     @CrossOrigin
-    @PatchMapping("/foodtruck/{id}")
-    public void updateLocation(@RequestBody FoodTruckLocation loc,
-                               @PathVariable("id") int truck_id){
-        // find the food truck in question
-        FoodTruck truck = foodTruckRepo.findOne(truck_id);
+    @PostMapping("/login")
+    public void logIn(@RequestBody User user, HttpSession session, HttpServletResponse response) throws IOException {
+        // Check with the database if the user has an account with the application
+        User repoUser = userRepo.findFirstByNameAndPassword(user.getUserName(), user.getPassword());
 
-        // save the location object
-        locationRepo.save(loc);
+        // If the user is found, set the current session to the user
+        if (repoUser != null){
+            session.setAttribute(USER_KEY, repoUser);
+        } else{
+            response.sendRedirect("/signup");
+        }
+    }
 
-        // set the truck's location to that object
-        // save the truck
+    @CrossOrigin
+    @PostMapping("/signup")
+    public void signUp(@RequestBody User newUser, HttpSession session, HttpServletResponse response) throws IOException {
+        if (userRepo.findFirstByName(newUser.getUserName()) == null){
+            userRepo.save(newUser);
+            session.getAttribute(USER_KEY);
+        } else{
+            // An error found when a user tries to create an account with a username that
+            // already exists in the database
+            response.sendError(422, "Username already exists. Please try again.");
+        }
     }
 
 
