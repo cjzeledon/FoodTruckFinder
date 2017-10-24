@@ -25,8 +25,11 @@ public class FoodTruck{
     @Column (nullable = true, updatable = false)
     private String url;
 
-    @OneToOne
+    @OneToOne(mappedBy = "foodTruck")
     private FoodTruckLocation location;
+
+    @OneToOne(mappedBy = "foodTruck")
+    private User user;
 
 
 
@@ -44,6 +47,11 @@ public class FoodTruck{
 
     public FoodTruckLocation getLocation() { return location; }
 
+    public User getUser() {return user; }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public int getId() {
         return id;
