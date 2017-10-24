@@ -7,7 +7,6 @@ import com.theironyard.charlotte.FoodTruckFinder.repositories.FoodTruckLocationR
 import com.theironyard.charlotte.FoodTruckFinder.repositories.FoodTruckRepository;
 import com.theironyard.charlotte.FoodTruckFinder.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
@@ -154,28 +153,6 @@ public class FoodTruckFinderController {
         }
     }
 
-//    // Example of how the URL looks when using this /signin?id=2
-//    @CrossOrigin
-//    @GetMapping("/signin")
-//    public String signIn(Model model, @RequestParam Integer id, HttpSession session){
-//        if (session.getAttribute("current_user") == null){
-//            return "signup";
-//        } else {
-//            userRepo.findOne(id).getUserName();
-//            userRepo.findOne(id).getPassword();
-//            session.setAttribute("current_user", model);
-//        }
-//        return "index";
-//    }
-
-//    @CrossOrigin
-//    @PostMapping("signup")
-//    public String signUp(@RequestBody User newUser, HttpSession session){
-//        userRepo.save(newUser);
-//        session.setAttribute("current_user", newUser);
-//        return "/";
-//    }
-
     @CrossOrigin
     @PostMapping("/foodtruck/add")
     public void addFoodTruck(FoodTruck truck){
@@ -206,7 +183,7 @@ public class FoodTruckFinderController {
     @PostMapping("/login")
     public void logIn(@RequestBody User user, HttpSession session, HttpServletResponse response) throws IOException {
         // Check with the database if the user has an account with the application
-        User repoUser = userRepo.findFirstByNameAndPassword(user.getUserName(), user.getPassword());
+        User repoUser = userRepo.findFirstByUserNameAndPassword(user.getUserName(), user.getPassword());
 
         // If the user is found, set the current session to the user
         if (repoUser != null){
@@ -219,7 +196,7 @@ public class FoodTruckFinderController {
     @CrossOrigin
     @PostMapping("/signup")
     public void signUp(@RequestBody User newUser, HttpSession session, HttpServletResponse response) throws IOException {
-        if (userRepo.findFirstByName(newUser.getUserName()) == null){
+        if (userRepo.findFirstByUserName(newUser.getUserName()) == null){
             userRepo.save(newUser);
             session.getAttribute(USER_KEY);
         } else{
