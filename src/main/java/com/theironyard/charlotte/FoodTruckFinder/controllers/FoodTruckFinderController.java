@@ -113,7 +113,7 @@ public class FoodTruckFinderController {
             User u = new User();
             u.setEmail("fakeUser2@foodtruckfinder.com");
             u.setPassword("abc");
-            u.setUserName("tachoLovin");
+            u.setUserName("tacoLovin");
             u.setUserType("customer");
             userRepo.save(u);
         }
@@ -171,12 +171,6 @@ public class FoodTruckFinderController {
     }
 
     @CrossOrigin
-    @PostMapping("/foodtruck/add")
-    public void addFoodTruck(FoodTruck truck){
-        foodTruckRepo.save(truck);
-    }
-
-    @CrossOrigin
     @GetMapping("/foodtruck/all")
     public Iterable<FoodTruck> getAllFoodTrucks(){
         return foodTruckRepo.findAll();
@@ -220,25 +214,31 @@ public class FoodTruckFinderController {
         // get the user's ID in the current session
         User u = (User)session.getAttribute(USER_KEY);
 
-        // If the user is an owner, add/link their food truck information
+        // If the user is an owner, add their food truck information
         if (u.getUserType().equals(UserType.owner)) {
             foodtruck.setUser(u);
             foodTruckRepo.save(foodtruck);
             // If the user is NOT an owner, they will receive an error
         } else {
-            response.sendError(422, "User is not a restaurant owner and cannot add a food truck.");
+            response.sendError(422, "User is not a food truck owner and cannot add a food truck.");
         }
     }
 
     @CrossOrigin
     @PatchMapping("/user/foodtruck/location")
-    public void updateLocation(@RequestBody FoodTruckLocation loc, FoodTruck foodtruck, HttpSession session){
-
+    public void updateLocation(@RequestBody FoodTruckLocation loc, FoodTruck foodtruck, HttpSession session, HttpServletResponse response) throws IOException {
+        // Get the user's ID in the current session
         User u = (User)session.getAttribute(USER_KEY);
-        foodtruck = foodTruckRepo.findFirstByName(foodtruck.getName());
-        foodtruck.setLocation(loc);
-        locationRepo.save(loc);
-        foodTruckRepo.save(foodtruck);
 
+        // Check if the current user is an owner, then allow
+        // the user(owner) to update their food truck's location
+        if (u.getUserType().equals(UserType.owner)){
+            foodtruck = foodTruckRepo.findFirstByName(foodtruck.getName());
+            foodtruck.setLocation(loc);
+            locationRepo.save(loc);
+            foodTruckRepo.save(foodtruck);
+        } else {
+            response.sendError(422, "User is not a food truck owner and cannot update the location of the food truck.");
+        }
     }
 }
