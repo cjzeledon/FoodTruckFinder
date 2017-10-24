@@ -58,8 +58,8 @@ public class YelpController {
     }
 
     @CrossOrigin
-    @GetMapping("/foodtrucks/reviews")
-    public JsonNode yelpReviews(@RequestParam String id) throws IOException {
+    @GetMapping("/foodtrucks/reviews/{id}")
+    public JsonNode yelpReviews(@PathVariable String id) throws IOException {
         RestTemplate yelpTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.add(HttpHeaders.AUTHORIZATION, "Bearer " + YTOKEN);
