@@ -10,10 +10,10 @@ public class FoodTruck{
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column (nullable = false, updatable = true)
+    @Column (nullable = true, updatable = true)
     private String name;
 
-    @Column (nullable = false, updatable = true)
+    @Column (nullable = true, updatable = true)
     private String foodType;
 
     @Column (nullable = true, updatable = false)

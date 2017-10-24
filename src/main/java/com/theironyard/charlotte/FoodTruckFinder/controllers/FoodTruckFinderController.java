@@ -1,8 +1,10 @@
 package com.theironyard.charlotte.FoodTruckFinder.controllers;
 
 import com.theironyard.charlotte.FoodTruckFinder.models.database.FoodTruck;
+import com.theironyard.charlotte.FoodTruckFinder.models.database.FoodTruckFavorite;
 import com.theironyard.charlotte.FoodTruckFinder.models.database.FoodTruckLocation;
 import com.theironyard.charlotte.FoodTruckFinder.models.database.User;
+import com.theironyard.charlotte.FoodTruckFinder.repositories.FavoritesRepository;
 import com.theironyard.charlotte.FoodTruckFinder.repositories.FoodTruckLocationRepository;
 import com.theironyard.charlotte.FoodTruckFinder.repositories.FoodTruckRepository;
 import com.theironyard.charlotte.FoodTruckFinder.repositories.UserRepository;
@@ -26,6 +28,9 @@ public class FoodTruckFinderController {
 
     @Autowired
     FoodTruckLocationRepository locationRepo;
+
+    @Autowired
+    FavoritesRepository favoritesRepo;
 
     @PostConstruct
     public void init () {
@@ -156,7 +161,17 @@ public class FoodTruckFinderController {
             l.setFoodTruck(foodTruckRepo.findOne(5));
             locationRepo.save(l);
         }
+
+        if(favoritesRepo.count() == 0) {
+            FoodTruckFavorite f = new FoodTruckFavorite();
+            f.setUser(userRepo.findOne(1));
+            f.setTruck(foodTruckRepo.findOne(1));
+            favoritesRepo.save(f);
+
+        }
     }
+
+
 
     @CrossOrigin
     @PostMapping("/foodtruck/add")
