@@ -118,20 +118,25 @@ public class FoodTruckFinderController {
         }
     }
 
+    // Example of how the URL looks when using this /signin?id=2
     @CrossOrigin
     @GetMapping("/signin")
-    public String signIn(Model model, HttpSession session){
+    public String signIn(Model model, @RequestParam Integer id, HttpSession session){
         if (session.getAttribute("current_user") == null){
             return "signup";
+        } else if {
+            userRepo.findOne(id).getUserName();
+            userRepo.findOne(id).getPassword();
+            session.setAttribute("current_user", model);
         }
         return "index";
     }
 
     @CrossOrigin
     @PostMapping("signup")
-    public String signUp(@RequestBody User createdUser, HttpSession session){
-        userRepo.save(createdUser);
-        session.setAttribute("current_user", createdUser);
+    public String signUp(@RequestBody User newUser, HttpSession session){
+        userRepo.save(newUser);
+        session.setAttribute("current_user", newUser);
         return "/";
     }
 
@@ -147,16 +152,19 @@ public class FoodTruckFinderController {
         return foodTruckRepo.findAll();
     }
 
-//    @CrossOrigin
-//    @PatchMapping("/foodtruck/{id}")
-//    public void updateLocation(@RequestBody FoodTruckLocation loc,
-//                               @PathVariable("id") int truck_id){
-//        // find the food truck in question
-//        foodTruckRepo.findOne(truck_id);
-//        // save the location object
-//        // set the truck's location to that object
-//        // save the truck
-//    }
+    @CrossOrigin
+    @PatchMapping("/foodtruck/{id}")
+    public void updateLocation(@RequestBody FoodTruckLocation loc,
+                               @PathVariable("id") int truck_id){
+        // find the food truck in question
+        FoodTruck truck = foodTruckRepo.findOne(truck_id);
+
+        // save the location object
+        locationRepo.save(loc);
+
+        // set the truck's location to that object
+        // save the truck
+    }
 
 
 }
