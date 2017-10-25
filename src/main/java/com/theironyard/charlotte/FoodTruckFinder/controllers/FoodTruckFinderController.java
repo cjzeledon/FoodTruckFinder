@@ -1,4 +1,5 @@
 package com.theironyard.charlotte.FoodTruckFinder.controllers;
+import com.google.api.Http;
 import com.theironyard.charlotte.FoodTruckFinder.models.database.FoodTruck;
 import com.theironyard.charlotte.FoodTruckFinder.models.database.FoodTruckFavorite;
 import com.theironyard.charlotte.FoodTruckFinder.models.database.FoodTruckLocation;
@@ -14,6 +15,8 @@ import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.Date;
+import java.time.Instant;
 
 @RestController
 public class FoodTruckFinderController {
@@ -231,16 +234,47 @@ public class FoodTruckFinderController {
 
     }
 
+    // Allows the current "owner" to update the food truck's location. NOTE: This is a "post" method.
     @CrossOrigin
-    @PatchMapping("/user/foodtruck/location")
-    public void updateLocation(@RequestBody FoodTruckLocation loc, FoodTruck foodtruck, HttpSession session, HttpServletResponse response) throws IOException {
+    @PostMapping("/user/start-location")
+    public void startLocation(@RequestBody FoodTruckLocation loc, HttpSession session, HttpServletResponse response) throws IOException {
         // Get the user's ID in the current session
-        User u = (User)session.getAttribute(USER_KEY);
+        User currentUser = (User)session.getAttribute(USER_KEY);
 
-//            foodtruck = foodTruckRepo.findFirstByName(foodtruck.getName());
-//            foodtruck.setLocation(loc);
-//            locationRepo.save(loc);
-//            foodTruckRepo.save(foodtruck);
+        if (currentUser != null){
+            FoodTruck truck = foodTruckRepo.findOne(currentUser.getFoodTruck().getId());
+
+            if (truck != null){
+                // if the truck has a current location, delete it.
+                if (truck.getLocation() != null) {
+                    locationRepo.delete(truck.getLocation());
+                }
+
+                loc.setStartTime(new Date(Instant.now().toEpochMilli()));
+                loc.setFoodTruck(truck);
+                locationRepo.save(loc);
+            } else {
+                response.sendError(403, "There is no food truck associated with the current user in session.");
+            }
+        } else {
+            response.sendError(403, "There is no user specified.");
+        }
+
+    }
+
+    @CrossOrigin
+    @PatchMapping("/user/end-location")
+    public void endLocation(HttpSession session, HttpServletResponse response) throws IOException {
+        User currentUser = (User)session.getAttribute(USER_KEY);
+
+        if(currentUser != null){
+            FoodTruckLocation currentLocation = foodTruckRepo.findOne(currentUser.getFoodTruck().getId()).getLocation();
+
+            currentLocation.setEndTime(new Date(Instant.now().toEpochMilli()));
+            locationRepo.save(currentLocation);
+        } else{
+            response.sendError(403, "No user was specified during this session.");
+        }
 
     }
 }

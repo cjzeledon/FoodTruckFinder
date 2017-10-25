@@ -94,4 +94,32 @@ public class User {
     public void setUserType(UserType userType) {
         this.userType = userType;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+
+        User user = (User) o;
+
+        if (getId() != user.getId()) return false;
+        if (getUserName() != null ? !getUserName().equals(user.getUserName()) : user.getUserName() != null)
+            return false;
+        if (getEmail() != null ? !getEmail().equals(user.getEmail()) : user.getEmail() != null) return false;
+        if (getPassword() != null ? !getPassword().equals(user.getPassword()) : user.getPassword() != null)
+            return false;
+        if (getUserType() != user.getUserType()) return false;
+        return getFoodTruck() != null ? getFoodTruck().equals(user.getFoodTruck()) : user.getFoodTruck() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId();
+        result = 31 * result + (getUserName() != null ? getUserName().hashCode() : 0);
+        result = 31 * result + (getEmail() != null ? getEmail().hashCode() : 0);
+        result = 31 * result + (getPassword() != null ? getPassword().hashCode() : 0);
+        result = 31 * result + (getUserType() != null ? getUserType().hashCode() : 0);
+        result = 31 * result + (getFoodTruck() != null ? getFoodTruck().hashCode() : 0);
+        return result;
+    }
 }
