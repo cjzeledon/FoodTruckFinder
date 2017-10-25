@@ -21,7 +21,7 @@ public class User {
     private String password;
 
     @Column(nullable = false)
-    private String userType;
+    private UserType userType;
 
     public User() {
     }
@@ -30,12 +30,21 @@ public class User {
     @JsonIgnore //will not include the food truck property in json to avoid creating an infinite loop
     private FoodTruck foodTruck;
 
-    public User(int id, String userName, String email, String password, String userType) {
+    public User(int id, String userName, String email, String password, UserType userType) {
         this.id = id;
         this.userName = userName;
         this.email = email;
         this.password = password;
         this.userType = userType;
+    }
+
+    public User(int id, String userName, String email, String password, UserType userType, FoodTruck foodTruck) {
+        this.id = id;
+        this.userName = userName;
+        this.email = email;
+        this.password = password;
+        this.userType = userType;
+        this.foodTruck = foodTruck;
     }
 
     public FoodTruck getFoodTruck() {
@@ -78,11 +87,11 @@ public class User {
         this.password = password;
     }
 
-    public String getUserType() {
+    public UserType getUserType() {
         return userType;
     }
 
-    public void setUserType(String userType) {
+    public void setUserType(UserType userType) {
         this.userType = userType;
     }
 }
