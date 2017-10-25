@@ -194,6 +194,93 @@ public class FoodTruckFinderController {
             t.setLocation(locationRepo.findOne(13));
             foodTruckRepo.save(t);
             }
+
+            if (foodTruckRepo.count() == 13) {
+
+            FoodTruck t = new FoodTruck();
+            t.setFoodType("acai");
+            t.setName("Rico's Acai");
+            t.setYelpId("ricos-acai-charlotte");
+            t.setImageURL("https://s3-media1.fl.yelpcdn.com/bphoto/4lPRtI5TDk6hDlLUrBiVvw/o.jpg");
+            t.setUrl("https://www.yelp.com/biz/ricos-acai-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
+            t.setLocation(locationRepo.findOne(14));
+            foodTruckRepo.save(t);
+            }
+
+        if (foodTruckRepo.count() == 14) {
+
+            FoodTruck t = new FoodTruck();
+            t.setFoodType("american");
+            t.setName("Auto Burger And Fry Guys");
+            t.setYelpId("auto-burger-and-fry-guys");
+            t.setImageURL("https://s3-media3.fl.yelpcdn.com/bphoto/6CXQB-PR7UxU0uX8RN6i0Q/o.jpg");
+            t.setUrl("https://www.yelp.com/biz/auto-burger-and-fry-guys-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
+            t.setLocation(locationRepo.findOne(15));
+            foodTruckRepo.save(t);
+        }
+
+        if (foodTruckRepo.count() == 15) {
+
+            FoodTruck t = new FoodTruck();
+            t.setFoodType("bao");
+            t.setName("A Bao Time");
+            t.setYelpId("a-bao-time-charlotte");
+            t.setImageURL( "https://s3-media2.fl.yelpcdn.com/bphoto/6m6xKRP7dplVPJOEwml5gA/o.jpg");
+            t.setUrl("https://www.yelp.com/biz/a-bao-time-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
+            t.setLocation(locationRepo.findOne(16));
+            foodTruckRepo.save(t);
+        }
+
+        if (foodTruckRepo.count() == 16) {
+
+            FoodTruck t = new FoodTruck();
+            t.setFoodType("original");
+            t.setName("Twisted Eats");
+            t.setYelpId("twisted-eats-charlotte");
+            t.setImageURL("https://s3-media4.fl.yelpcdn.com/bphoto/VIkyH8svISIZuFVDhI62gw/o.jpg");
+            t.setUrl("https://www.yelp.com/biz/twisted-eats-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
+            t.setLocation(locationRepo.findOne(17));
+            foodTruckRepo.save(t);
+        }
+
+        if (foodTruckRepo.count() == 17) {
+
+            FoodTruck t = new FoodTruck();
+            t.setFoodType("taco");
+            t.setName("Maki Taco");
+            t.setYelpId("maki-taco-charlotte");
+            t.setImageURL("https://s3-media2.fl.yelpcdn.com/bphoto/TRa2LgNA5fnZ_NIyrmrzNQ/o.jpg");
+            t.setUrl("https://www.yelp.com/biz/maki-taco-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
+            t.setLocation(locationRepo.findOne(18));
+            foodTruckRepo.save(t);
+        }
+
+        if (foodTruckRepo.count() == 18) {
+
+            FoodTruck t = new FoodTruck();
+            t.setFoodType("Japanese");
+            t.setName("Tiger Yakitori");
+            t.setYelpId("tiger-yakitori-charlotte");
+            t.setUrl("https://www.yelp.com/biz/tiger-yakitori-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
+            t.setImageURL("https://s3-media2.fl.yelpcdn.com/bphoto/8kls0_u_K7-vK2Makbdmog/o.jpg");
+            t.setLocation(locationRepo.findOne(19));
+            foodTruckRepo.save(t);
+        }
+
+        if (foodTruckRepo.count() == 19) {
+
+            FoodTruck t = new FoodTruck();
+            t.setFoodType("Puerto Rican");
+            t.setName("Pinchos El Bori");
+            t.setYelpId("pinchos-el-bori-charlotte");
+            t.setImageURL("https://s3-media3.fl.yelpcdn.com/bphoto/kCSv3rp4V1HNeyaa9FeFxw/o.jpg");
+            t.setUrl("https://www.yelp.com/biz/pinchos-el-bori-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
+            t.setLocation(locationRepo.findOne(20));
+            foodTruckRepo.save(t);
+        }
+
+//
+
     }
 
     @PostConstruct
