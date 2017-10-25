@@ -534,7 +534,7 @@ public class FoodTruckFinderController {
 
     @CrossOrigin
     @PostMapping("/favorites")
-    public void addFavorite(){
-
+    public void addFavorite(@RequestParam int truck_id, HttpSession session){
+        User currentUser = (User)session.getAttribute(USER_KEY);
     }
 }
