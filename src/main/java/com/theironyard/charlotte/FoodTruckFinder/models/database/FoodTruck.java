@@ -38,10 +38,6 @@ public class FoodTruck{
     public FoodTruck() {
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 566b4965e2f32722e4510014ce5aa88e0fbcb8df
     public FoodTruck(int id, String name, String foodType, String yelpId, String imageURL, String url, FoodTruckLocation location, User user) {
         this.id = id;
         this.name = name;
