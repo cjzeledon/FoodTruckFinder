@@ -1,5 +1,7 @@
 package com.theironyard.charlotte.FoodTruckFinder.models.database;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 
 
@@ -29,6 +31,7 @@ public class FoodTruck{
     private FoodTruckLocation location;
 
     @OneToOne(mappedBy = "foodTruck")
+//    @Cascade(org.hibernate.annotations.CascadeType.ALL) // This means when FoodTruck is saved, save the user as well.
     private User user;
 
 
@@ -42,6 +45,17 @@ public class FoodTruck{
         this.yelpId = yelpId;
         this.imageURL = imageURL;
         this.url = url;
+    }
+
+    public FoodTruck(int id, String name, String foodType, String yelpId, String imageURL, String url, FoodTruckLocation location, User user) {
+        this.id = id;
+        this.name = name;
+        this.foodType = foodType;
+        this.yelpId = yelpId;
+        this.imageURL = imageURL;
+        this.url = url;
+        this.location = location;
+        this.user = user;
     }
 
     public FoodTruckLocation getLocation() { return location; }

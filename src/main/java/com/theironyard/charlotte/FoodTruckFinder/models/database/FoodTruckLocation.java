@@ -99,4 +99,17 @@ public class FoodTruckLocation {
     public void setFoodTruck(FoodTruck foodTruck) {
         this.foodTruck = foodTruck;
     }
+
+    @Override
+    public String toString() {
+        return "FoodTruckLocation{" +
+                "id=" + id +
+                ", address='" + address + '\'' +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                ", foodTruck=" + foodTruck +
+                '}';
+    }
 }

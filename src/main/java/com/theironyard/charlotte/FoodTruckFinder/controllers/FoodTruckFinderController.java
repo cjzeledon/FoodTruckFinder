@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.constraints.Null;
 import java.io.IOException;
+import java.sql.Date;
+import java.time.Instant;
 
 @RestController
 public class FoodTruckFinderController {
@@ -184,7 +186,7 @@ public class FoodTruckFinderController {
             u.setEmail("fakeUser1@foodtruckfinder.com");
             u.setPassword("123");
             u.setUserName("tacoGuy");
-            u.setUserType("owner");
+            u.setUserType(UserType.owner);
             u.setFoodTruck(foodTruckRepo.findOne(1));
             userRepo.save(u);
         }
@@ -194,7 +196,7 @@ public class FoodTruckFinderController {
             u.setEmail("fakeUser2@foodtruckfinder.com");
             u.setPassword("abc");
             u.setUserName("tacoLovin");
-            u.setUserType("customer");
+            u.setUserType(UserType.customer);
             userRepo.save(u);
         }
     }
@@ -366,29 +368,62 @@ public class FoodTruckFinderController {
 
         // If the user is an owner, add their food truck information
         if (u.getUserType().equals(UserType.owner)) {
-            foodtruck.setUser(u);
+            u.setFoodTruck(foodtruck);
             foodTruckRepo.save(foodtruck);
+            userRepo.save(u);
+
             // If the user is NOT an owner, they will receive an error
         } else {
             response.sendError(422, "User is not a food truck owner and cannot add a food truck.");
         }
+
+
+//            foodtruck.setUser(u);
+//            foodTruckRepo.save(foodtruck);
+
+    }
+
+    // Allows the current "owner" to update the food truck's location. NOTE: This is a "post" method.
+    @CrossOrigin
+    @PostMapping("/user/start-location")
+    public void startLocation(@RequestBody FoodTruckLocation loc, HttpSession session, HttpServletResponse response) throws IOException {
+        // Get the user's ID in the current session
+        User currentUser = (User)session.getAttribute(USER_KEY);
+
+        if (currentUser != null){
+            FoodTruck truck = foodTruckRepo.findOne(currentUser.getFoodTruck().getId());
+
+            if (truck != null){
+                // if the truck has a current location, delete it.
+                if (truck.getLocation() != null) {
+                    locationRepo.delete(truck.getLocation());
+                }
+
+                loc.setStartTime(new Date(Instant.now().toEpochMilli()));
+                loc.setFoodTruck(truck);
+                locationRepo.save(loc);
+            } else {
+                response.sendError(403, "There is no food truck associated with the current user in session.");
+            }
+        } else {
+            response.sendError(403, "There is no user specified.");
+        }
+
     }
 
     @CrossOrigin
-    @PatchMapping("/user/foodtruck/location")
-    public void updateLocation(@RequestBody FoodTruckLocation loc, FoodTruck foodtruck, HttpSession session, HttpServletResponse response) throws IOException {
-        // Get the user's ID in the current session
-        User u = (User)session.getAttribute(USER_KEY);
+    @PatchMapping("/user/end-location")
+    public void endLocation(HttpSession session, HttpServletResponse response) throws IOException {
+        User currentUser = (User)session.getAttribute(USER_KEY);
 
-        // Check if the current user is an owner, then allow
-        // the user(owner) to update their food truck's location
-        if (u.getUserType().equals(UserType.owner)){
-            foodtruck = foodTruckRepo.findFirstByName(foodtruck.getName());
-            foodtruck.setLocation(loc);
-            locationRepo.save(loc);
-            foodTruckRepo.save(foodtruck);
-        } else {
-            response.sendError(422, "User is not a food truck owner and cannot update the location of the food truck.");
+        if(currentUser != null){
+            FoodTruckLocation currentLocation = foodTruckRepo.findOne(currentUser.getFoodTruck().getId()).getLocation();
+
+            currentLocation.setEndTime(new Date(Instant.now().toEpochMilli()));
+            locationRepo.save(currentLocation);
+        } else{
+            response.sendError(403, "No user was specified during this session.");
         }
+
     }
 }
