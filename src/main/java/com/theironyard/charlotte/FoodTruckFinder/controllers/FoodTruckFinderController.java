@@ -1,5 +1,4 @@
 package com.theironyard.charlotte.FoodTruckFinder.controllers;
-import com.google.api.Http;
 import com.theironyard.charlotte.FoodTruckFinder.models.database.FoodTruck;
 import com.theironyard.charlotte.FoodTruckFinder.models.database.FoodTruckFavorite;
 import com.theironyard.charlotte.FoodTruckFinder.models.database.FoodTruckLocation;
