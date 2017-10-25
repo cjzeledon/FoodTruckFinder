@@ -64,6 +64,7 @@ public class FoodTruckFinderController {
 
 
         if (foodTruckRepo.count() == 2) {
+
             FoodTruck t = new FoodTruck();
             t.setFoodType("Halal");
             t.setName("Mi Barrio's Halal Cart");
@@ -75,6 +76,7 @@ public class FoodTruckFinderController {
         }
 
         if (foodTruckRepo.count() == 3) {
+
             FoodTruck t = new FoodTruck();
             t.setFoodType("All");
             t.setName("Food Truck Friday Charlotte");
@@ -86,6 +88,7 @@ public class FoodTruckFinderController {
         }
 
         if (foodTruckRepo.count() == 4) {
+
             FoodTruck t = new FoodTruck();
             t.setFoodType("sandwiches");
             t.setName("The Cookin Coop");
@@ -97,6 +100,7 @@ public class FoodTruckFinderController {
         }
 
         if (foodTruckRepo.count() == 5) {
+
             FoodTruck t = new FoodTruck();
             t.setFoodType("soul food");
             t.setName("Roaming Fork");
@@ -104,9 +108,11 @@ public class FoodTruckFinderController {
             t.setImageURL("https://s3-media2.fl.yelpcdn.com/bphoto/u2e93f8bh6AZowGAlvVdFA/o.jpg");
             t.setUrl("https://www.yelp.com/biz/roaming-fork-charlotte-2?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
             t.setLocation(locationRepo.findOne(6));
+            foodTruckRepo.save(t);
         }
 
         if (foodTruckRepo.count() == 6) {
+
             FoodTruck t = new FoodTruck();
             t.setFoodType("seafood");
             t.setName("Maryland Crab & Co");
@@ -114,9 +120,11 @@ public class FoodTruckFinderController {
             t.setImageURL("https://s3-media1.fl.yelpcdn.com/bphoto/iRstX0a2QRu5os3eloEQhg/o.jpg");
             t.setUrl("https://s3-media1.fl.yelpcdn.com/bphoto/iRstX0a2QRu5os3eloEQhg/o.jpg");
             t.setLocation(locationRepo.findOne(7));
+            foodTruckRepo.save(t);
         }
 
         if (foodTruckRepo.count() == 7) {
+
             FoodTruck t = new  FoodTruck();
             t.setFoodType("pizza");
             t.setName("Vitos Pizza");
@@ -124,9 +132,11 @@ public class FoodTruckFinderController {
             t.setImageURL("https://s3-media1.fl.yelpcdn.com/bphoto/oFFeiIe1JOc1IC7tqiDJAw/o.jpg");
             t.setUrl("https://www.yelp.com/biz/vitos-pizza-charlotte-2?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
             t.setLocation(locationRepo.findOne(8));
+            foodTruckRepo.save(t);
         }
 
         if (foodTruckRepo.count() == 8) {
+
             FoodTruck t = new FoodTruck();
             t.setFoodType("thai");
             t.setName("Thai 2 go");
@@ -134,9 +144,11 @@ public class FoodTruckFinderController {
             t.setImageURL("https://s3-media2.fl.yelpcdn.com/bphoto/8rmMM6-SFZWkmo9sPU190A/o.jpg");
             t.setUrl("https://www.yelp.com/biz/thai-2-go-concord?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
             t.setLocation(locationRepo.findOne(9));
+            foodTruckRepo.save(t);
         }
 
         if (foodTruckRepo.count() == 9) {
+
             FoodTruck t = new FoodTruck();
             t.setFoodType("mediterranean");
             t.setName("Fresh Med Food Truck");
@@ -144,9 +156,11 @@ public class FoodTruckFinderController {
             t.setImageURL("https://s3-media4.fl.yelpcdn.com/bphoto/ZJE3pD30Yyl-FMceu0DxvA/o.jpg");
             t.setUrl("https://www.yelp.com/biz/fresh-med-food-truck-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
             t.setLocation(locationRepo.findOne(10));
+            foodTruckRepo.save(t);
         }
 
         if (foodTruckRepo.count() == 10) {
+
             FoodTruck t = new FoodTruck();
             t.setFoodType("tacos");
             t.setName("SoCal Taco Stand");
@@ -154,9 +168,11 @@ public class FoodTruckFinderController {
             t.setImageURL("https://s3-media2.fl.yelpcdn.com/bphoto/pmdhI5Nz_mNLtnbualIOiQ/o.jpg");
             t.setUrl("https://www.yelp.com/biz/socal-taco-stand-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
             t.setLocation(locationRepo.findOne(11));
+            foodTruckRepo.save(t);
         }
 
             if (foodTruckRepo.count() == 11) {
+
             FoodTruck t = new FoodTruck();
             t.setFoodType("comfort food");
             t.setName("Comfort Foods on Wheels");
@@ -164,9 +180,11 @@ public class FoodTruckFinderController {
             t.setImageURL("https://s3-media4.fl.yelpcdn.com/bphoto/7PArhaUfNT_ktIyTM53BlQ/o.jpg");
             t.setUrl("https://www.yelp.com/biz/comfort-foods-on-wheels-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
             t.setLocation(locationRepo.findOne(12));
+            foodTruckRepo.save(t);
             }
 
             if (foodTruckRepo.count() == 12) {
+
             FoodTruck t = new FoodTruck();
             t.setFoodType("indian");
             t.setName("Chennai Curries");
@@ -174,6 +192,7 @@ public class FoodTruckFinderController {
             t.setImageURL("https://s3-media4.fl.yelpcdn.com/bphoto/lh5-waABMQkeZKaRoM-jXA/o.jpg");
             t.setUrl("https://www.yelp.com/biz/chennai-curries-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
             t.setLocation(locationRepo.findOne(13));
+            foodTruckRepo.save(t);
             }
     }
 
@@ -313,17 +332,17 @@ public class FoodTruckFinderController {
 
     @PostConstruct
     public void userFavorites() {
-        if(favoritesRepo.count() == 0) {
+        if (favoritesRepo.count() == 0) {
             FoodTruckFavorite f = new FoodTruckFavorite();
             f.setUser(userRepo.findOne(1));
             f.setTruck(foodTruckRepo.findOne(1));
             favoritesRepo.save(f);
 
+        }
     }
-
     @CrossOrigin
     @GetMapping("/foodtruck/all")
-    public Iterable<FoodTruck> getAllFoodTrucks(); {
+    public Iterable<FoodTruck> getAllFoodTrucks() {
         return foodTruckRepo.findAll();
     }
 
