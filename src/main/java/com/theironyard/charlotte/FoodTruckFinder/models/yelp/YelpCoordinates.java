@@ -1,11 +1,16 @@
 package com.theironyard.charlotte.FoodTruckFinder.models.yelp;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 public class YelpCoordinates {
     private double latitude;
     private double longitude;
 
     public double getLatitude() {
-        return latitude;
+        DecimalFormat df = new DecimalFormat("#.####");
+        df.setRoundingMode(RoundingMode.DOWN);
+        return Double.valueOf(df.format(latitude));
     }
 
     public void setLatitude(double latitude) {
@@ -13,7 +18,9 @@ public class YelpCoordinates {
     }
 
     public double getLongitude() {
-        return longitude;
+        DecimalFormat df = new DecimalFormat("#.####");
+        df.setRoundingMode(RoundingMode.DOWN);
+        return Double.valueOf(df.format(longitude));
     }
 
     public void setLongitude(double longitude) {

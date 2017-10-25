@@ -531,4 +531,10 @@ public class FoodTruckFinderController {
         }
 
     }
+
+    @CrossOrigin
+    @PostMapping("/favorites")
+    public void addFavorite(){
+
+    }
 }
