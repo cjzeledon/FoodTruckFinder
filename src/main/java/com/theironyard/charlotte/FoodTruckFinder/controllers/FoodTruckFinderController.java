@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.validation.constraints.Null;
 import java.io.IOException;
 import java.sql.Date;
 import java.time.Instant;
@@ -169,7 +168,7 @@ public class FoodTruckFinderController {
 
             if (foodTruckRepo.count() == 12) {
             FoodTruck t = new FoodTruck();
-            t.setFoodType("indian"):
+            t.setFoodType("indian");
             t.setName("Chennai Curries");
             t.setYelpId("chennia-curries-charlotte");
             t.setImageURL("https://s3-media4.fl.yelpcdn.com/bphoto/lh5-waABMQkeZKaRoM-jXA/o.jpg");
@@ -324,7 +323,7 @@ public class FoodTruckFinderController {
 
     @CrossOrigin
     @GetMapping("/foodtruck/all")
-    public Iterable<FoodTruck> getAllFoodTrucks(){
+    public Iterable<FoodTruck> getAllFoodTrucks(); {
         return foodTruckRepo.findAll();
     }
 
