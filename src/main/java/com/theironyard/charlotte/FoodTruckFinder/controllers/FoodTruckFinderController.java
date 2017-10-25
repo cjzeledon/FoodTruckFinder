@@ -237,10 +237,10 @@ public class FoodTruckFinderController {
         // Get the user's ID in the current session
         User u = (User)session.getAttribute(USER_KEY);
 
-            foodtruck = foodTruckRepo.findFirstByName(foodtruck.getName());
-            foodtruck.setLocation(loc);
-            locationRepo.save(loc);
-            foodTruckRepo.save(foodtruck);
+//            foodtruck = foodTruckRepo.findFirstByName(foodtruck.getName());
+//            foodtruck.setLocation(loc);
+//            locationRepo.save(loc);
+//            foodTruckRepo.save(foodtruck);
 
     }
 }
