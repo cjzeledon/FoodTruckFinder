@@ -1,7 +1,6 @@
 package com.theironyard.charlotte.FoodTruckFinder.controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.theironyard.charlotte.FoodTruckFinder.models.yelp.YelpBusiness;
 import com.theironyard.charlotte.FoodTruckFinder.models.yelp.YelpResponse;
 import org.springframework.http.HttpEntity;
@@ -9,10 +8,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
-
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
+
 
 
 @RestController
