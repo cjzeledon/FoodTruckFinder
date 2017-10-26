@@ -788,7 +788,7 @@ public class FoodTruckFinderController {
     @GetMapping("/foodtruck/all")
     public Iterable<FoodTruck> getAllFoodTrucks() {
         return foodTruckRepo.findAll();
-    }
+        }
 
     @CrossOrigin
     @PostMapping("/login")
