@@ -496,7 +496,7 @@ public class FoodTruckFinderController {
 
     @CrossOrigin
     @PostMapping("/login")
-    public void logIn(@RequestBody User user, HttpSession session, HttpServletResponse response) throws IOException {
+    public User logIn(@RequestBody User user, HttpSession session, HttpServletResponse response) throws IOException {
         // Check with the database if the user has an account with the application
         User repoUser = userRepo.findFirstByUserNameAndPassword(user.getUserName(), user.getPassword());
 
@@ -506,6 +506,7 @@ public class FoodTruckFinderController {
         } else{
             response.sendError(401, "You have not created account with this application. Please sign up.");
         }
+        return repoUser;
     }
 
     @CrossOrigin
