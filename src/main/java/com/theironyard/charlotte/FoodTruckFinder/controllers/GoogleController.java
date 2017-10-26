@@ -2,8 +2,12 @@ package com.theironyard.charlotte.FoodTruckFinder.controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.theironyard.charlotte.FoodTruckFinder.models.database.FoodTruck;
+import com.theironyard.charlotte.FoodTruckFinder.models.database.FoodTruckLocation;
 import com.theironyard.charlotte.FoodTruckFinder.models.yelp.YelpBusiness;
 import com.theironyard.charlotte.FoodTruckFinder.models.yelp.YelpCoordinates;
+import com.theironyard.charlotte.FoodTruckFinder.repositories.FoodTruckRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -15,6 +19,10 @@ import java.net.URL;
 
 @RestController
 public class GoogleController {
+
+    @Autowired
+    FoodTruckRepository foodTruckRepo;
+
     private static final String GTOKEN = System.getenv("GOOGLE_API_KEY");
     private static final String YTOKEN = System.getenv("YELP_ACCESS_KEY");
     private String travelMode = "walking"; // choose either driving, walking, bicycling, or transit

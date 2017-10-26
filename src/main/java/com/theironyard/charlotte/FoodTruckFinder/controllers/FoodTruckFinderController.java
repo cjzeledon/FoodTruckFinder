@@ -542,11 +542,6 @@ public class FoodTruckFinderController {
         } else {
             response.sendError(422, "User is not a food truck owner and cannot add a food truck.");
         }
-
-
-//            foodtruck.setUser(u);
-//            foodTruckRepo.save(foodtruck);
-
     }
 
     // Allows the current "owner" to update the food truck's location. NOTE: This is a "post" method.
