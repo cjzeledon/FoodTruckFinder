@@ -539,7 +539,7 @@ public class FoodTruckFinderController {
         User currentUser = (User)session.getAttribute(USER_KEY);
 
         // Find the food truck
-        FoodTruck truck = foodTruckRepo.findFirstByID(truck_id);
+        FoodTruck truck = foodTruckRepo.findFirstByid(truck_id);
 
         // Create a new favorite object that can store a user object and a food truck object
         FoodTruckFavorite favorite = new FoodTruckFavorite();
