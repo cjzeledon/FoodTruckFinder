@@ -279,7 +279,7 @@ public class FoodTruckFinderController {
             foodTruckRepo.save(t);
         }
 
-//
+
 
     }
 
@@ -381,37 +381,98 @@ public class FoodTruckFinderController {
 
         if (locationRepo.count() == 9) {
             FoodTruckLocation l = new FoodTruckLocation();
-            l.setLatitude(35.21135);
-            l.setLongitude(-80.83387);
+            l.setLatitude(35.2113);
+            l.setLongitude(-80.8338);
             l.setFoodTruck(foodTruckRepo.findOne(10));
             locationRepo.save(l);
         }
 
         if (locationRepo.count() == 10) {
             FoodTruckLocation l = new FoodTruckLocation();
-            l.setLatitude(35.2256115700101);
-            l.setLongitude(-80.8454956969987);
+            l.setLatitude(35.2256);
+            l.setLongitude(-80.8454);
             l.setFoodTruck(foodTruckRepo.findOne(11));
             locationRepo.save(l);
         }
 
         if (locationRepo.count() == 11) {
             FoodTruckLocation l = new FoodTruckLocation();
-            l.setLatitude(35.2270869);
-            l.setLongitude(-80.8431267);
+            l.setLatitude(35.2270);
+            l.setLongitude(-80.8431);
             l.setFoodTruck(foodTruckRepo.findOne(12));
             locationRepo.save(l);
         }
 
         if (locationRepo.count() == 12) {
             FoodTruckLocation l = new FoodTruckLocation();
-            l.setLatitude(35.2326635879196);
-            l.setLongitude(-80.8459649607539);
+            l.setLatitude(35.2303);
+            l.setLongitude(-80.8443);
             l.setFoodTruck(foodTruckRepo.findOne(13));
             locationRepo.save(l);
         }
 
+        if (locationRepo.count() == 13) {
 
+            FoodTruckLocation l = new FoodTruckLocation();
+            l.setLatitude(35.2232);
+            l.setLongitude(-80.847133);
+            l.setFoodTruck(foodTruckRepo.findOne(14));
+            locationRepo.save(l);
+        }
+
+        if (locationRepo.count() == 14) {
+
+            FoodTruckLocation l = new FoodTruckLocation();
+            l.setLatitude(35.2263);
+            l.setLongitude(-80.8560);
+            l.setFoodTruck(foodTruckRepo.findOne(15));
+            locationRepo.save(l);
+        }
+
+        if (locationRepo.count() == 15) {
+
+            FoodTruckLocation l = new FoodTruckLocation();
+            l.setLatitude(35.2013);
+            l.setLongitude(-80.8738);
+            l.setFoodTruck(foodTruckRepo.findOne(16));
+            locationRepo.save(l);
+        }
+
+        if (locationRepo.count() == 16) {
+
+            FoodTruckLocation l = new FoodTruckLocation();
+            l.setLatitude(35.2166);
+            l.setLongitude(-80.85654);
+            l.setFoodTruck(foodTruckRepo.findOne(17));
+            locationRepo.save(l);
+        }
+
+        if (locationRepo.count() == 17) {
+
+            FoodTruckLocation l = new FoodTruckLocation;
+            l.setLatitude(35.2228);
+            l.setLongitude(-80.8379);
+            l.setFoodTruck(foodTruckRepo.findOne(18));
+            locationRepo.save(l);
+        }
+
+        if (locationRepo.count() == 18) {
+
+            FoodTruckLocation l = new FoodTruckLocation;
+            l.setLatitude(35.2271);
+            l.setLongitude(-80.8427);
+            l.setFoodTruck(foodTruckRepo.findOne(19));
+            locationRepo.save(l);
+        }
+
+        if (locationRepo.count() == 19) {
+
+            FoodTruckLocation l = new FoodTruckLocation;
+            l.setLatitude(35.2278);
+            l.setLongitude(-80.83535);
+            l.setFoodTruck(foodTruckRepo.findOne(20));
+            locationRepo.save(l);
+        }
 
 
 
