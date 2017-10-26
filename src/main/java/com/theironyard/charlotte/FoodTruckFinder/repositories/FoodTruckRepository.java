@@ -8,4 +8,7 @@ public interface FoodTruckRepository extends CrudRepository<FoodTruck, Integer>{
     FoodTruck findFirstByName(String name);
 
     FoodTruck findFirstByYelpId(String yelpId);
+
+    FoodTruck findFirstByid(int id);
+
 }
