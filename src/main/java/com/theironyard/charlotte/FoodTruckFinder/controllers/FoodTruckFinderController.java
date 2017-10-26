@@ -449,7 +449,7 @@ public class FoodTruckFinderController {
 
         if (locationRepo.count() == 17) {
 
-            FoodTruckLocation l = new FoodTruckLocation;
+            FoodTruckLocation l = new FoodTruckLocation();
             l.setLatitude(35.2228);
             l.setLongitude(-80.8379);
             l.setFoodTruck(foodTruckRepo.findOne(18));
@@ -458,7 +458,7 @@ public class FoodTruckFinderController {
 
         if (locationRepo.count() == 18) {
 
-            FoodTruckLocation l = new FoodTruckLocation;
+            FoodTruckLocation l = new FoodTruckLocation();
             l.setLatitude(35.2271);
             l.setLongitude(-80.8427);
             l.setFoodTruck(foodTruckRepo.findOne(19));
@@ -467,7 +467,7 @@ public class FoodTruckFinderController {
 
         if (locationRepo.count() == 19) {
 
-            FoodTruckLocation l = new FoodTruckLocation;
+            FoodTruckLocation l = new FoodTruckLocation();
             l.setLatitude(35.2278);
             l.setLongitude(-80.83535);
             l.setFoodTruck(foodTruckRepo.findOne(20));
