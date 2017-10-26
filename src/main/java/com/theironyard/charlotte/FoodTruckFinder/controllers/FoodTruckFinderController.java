@@ -279,6 +279,87 @@ public class FoodTruckFinderController {
             foodTruckRepo.save(t);
         }
 
+        if (foodTruckRepo.count() == 20) {
+
+            FoodTruck t = new FoodTruck();
+            t.setFoodType("Greek");
+            t.setName("Gyro Twins");
+            t.setLocation(locationRepo.findOne(21));
+            foodTruckRepo.save(t);
+        }
+
+        if (foodTruckRepo.count() == 21) {
+
+            FoodTruck t = new FoodTruck();
+            t.setFoodType("comfort food");
+            t.setName("Comfort Food on Wheels");
+            t.setLocation(locationRepo.findOne(22));
+            foodTruckRepo.save(t);
+        }
+
+        if (foodTruckRepo.count() == 22) {
+
+            FoodTruck t = new FoodTruck();
+            t.setFoodType("chinese");
+            t.setName("The Dumpling Lady");
+            t.setLocation(locationRepo.findOne(23));
+            foodTruckRepo.save(t);
+        }
+
+        if (foodTruckRepo.count() == 23) {
+
+            FoodTruck t = new FoodTruck();
+            t.setFoodType("BBQ");
+            t.setName("Rocky top BBQ CO.");
+            t.setLocation(locationRepo.findOne(24));
+            foodTruckRepo.save(t);
+        }
+
+        if (foodTruckRepo.count() == 24) {
+
+            FoodTruck t = new FoodTruck();
+            t.setFoodType("New Orleans");
+            t.setName("Magnolia's Poboys");
+            t.setLocation(locationRepo.findOne(25));
+            foodTruckRepo.save(t);
+        }
+
+        if (foodTruckRepo.count() == 25) {
+
+            FoodTruck t = new FoodTruck();
+            t.setFoodType("american");
+            t.setName("Two Chicks and a Truck");
+            t.setLocation(locationRepo.findOne(26));
+            foodTruckRepo.save(t);
+        }
+
+        if (foodTruckRepo.count() == 26) {
+
+            FoodTruck t = new FoodTruck();
+            t.setFoodType("Mediterranean");
+            t.setName("Zaroob");
+            t.setLocation(locationRepo.findOne(27));
+            foodTruckRepo.save(t);
+        }
+
+        if (foodTruckRepo.count() == 27) {
+
+            FoodTruck t = new FoodTruck();
+            t.setFoodType("Italian Ice");
+            t.setName("Polo's homemade Italian water ice");
+            t.setLocation(locationRepo.findOne(28));
+            foodTruckRepo.save(t);
+        }
+
+        if (foodTruckRepo.count() == 28) {
+
+            FoodTruck t = new FoodTruck();
+            t.setFoodType("Vietnamese");
+            t.setName("Yummi Banh Mi");
+            t.setLocation(locationRepo.findOne(29));
+            foodTruckRepo.save(t);
+        }
+
 
 
     }
