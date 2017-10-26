@@ -535,6 +535,23 @@ public class FoodTruckFinderController {
     @CrossOrigin
     @PostMapping("/favorites")
     public void addFavorite(@RequestParam int truck_id, HttpSession session){
+        // Get the user's id in the current session
         User currentUser = (User)session.getAttribute(USER_KEY);
+
+        // Find the food truck
+        FoodTruck truck = foodTruckRepo.findFirstByID(truck_id);
+
+        // Create a new favorite object that can store a user object and a food truck object
+        FoodTruckFavorite favorite = new FoodTruckFavorite();
+
+        // Set the food truck object that is selected via @RequestParam which finds through the truck field
+        favorite.setTruck(truck);
+
+        // Set the user that is in session
+        favorite.setUser(currentUser);
+
+        // save the food truck object and the current user's object into favorite by their IDs
+        favoritesRepo.save(favorite);
+
     }
 }
