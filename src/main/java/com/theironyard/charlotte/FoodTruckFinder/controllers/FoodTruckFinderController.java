@@ -288,6 +288,10 @@ public class FoodTruckFinderController {
 //            t.setLocation(locationRepo.findOne(20));
             foodTruckRepo.save(t);
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2190e025731146024ad3e27ea51614cca6aaa941
     }
 
     @PostConstruct
@@ -295,9 +299,9 @@ public class FoodTruckFinderController {
         if (userRepo.count() == 0) {
 
             User u = new User();
-            u.setEmail("tacoGuy@foodtruckfinder.com");
+            u.setEmail("TINKitchen@foodtruckfinder.com");
             u.setPassword("password");
-            u.setUserName("tacoGuy");
+            u.setUserName("TINKitchen");
             u.setUserType(UserType.owner);
             u.setFoodTruck(foodTruckRepo.findOne(1));
             userRepo.save(u);
@@ -315,9 +319,9 @@ public class FoodTruckFinderController {
         if (userRepo.count() == 2){
 
             User u = new User();
-            u.setEmail("fruity@foodtruckfiner.com");
+            u.setEmail("PapiQueso@foodtruckfinder.com");
             u.setPassword("password");
-            u.setUserName("fruityGal");
+            u.setUserName("PapiQueso");
             u.setUserType(UserType.owner);
             u.setFoodTruck(foodTruckRepo.findOne(2));
             userRepo.save(u);
@@ -326,9 +330,9 @@ public class FoodTruckFinderController {
         if (userRepo.count() == 3){
 
             User u = new User();
-            u.setEmail("licoriceLover@foodtruckfinder.com");
+            u.setEmail("MiBarrios@foodtruckfinder.com");
             u.setPassword("password");
-            u.setUserName("licoriceLover");
+            u.setUserName("MiBarrios");
             u.setUserType(UserType.owner);
             u.setFoodTruck(foodTruckRepo.findOne(3));
             userRepo.save(u);
@@ -337,9 +341,9 @@ public class FoodTruckFinderController {
         if (userRepo.count() == 4){
 
             User u = new User();
-            u.setEmail("souschef@foodtruckfinder.com");
+            u.setEmail("FoodTruckFriday@foodtruckfinder.com");
             u.setPassword("password");
-            u.setUserName("souschef");
+            u.setUserName("FoodTruckFriday");
             u.setUserType(UserType.owner);
             u.setFoodTruck(foodTruckRepo.findOne(4));
             userRepo.save(u);
@@ -348,9 +352,9 @@ public class FoodTruckFinderController {
         if (userRepo.count() == 5){
 
             User u = new User();
-            u.setEmail("scienceyone@foodtruckfinder.com");
+            u.setEmail("TheCookinCoop@foodtruckfinder.com");
             u.setPassword("password");
-            u.setUserName("scienceyone");
+            u.setUserName("CookinCoop");
             u.setUserType(UserType.owner);
             u.setFoodTruck(foodTruckRepo.findOne(5));
             userRepo.save(u);
@@ -359,9 +363,9 @@ public class FoodTruckFinderController {
         if (userRepo.count() == 6){
 
             User u = new User();
-            u.setEmail("cupcakesandsnakes@foodtruckfinder.com");
+            u.setEmail("RoamingFork@foodtruckfinder.com");
             u.setPassword("password");
-            u.setUserName("cupcakesandsnakes");
+            u.setUserName("RoamingFork");
             u.setUserType(UserType.owner);
             u.setFoodTruck(foodTruckRepo.findOne(6));
             userRepo.save(u);
@@ -370,9 +374,9 @@ public class FoodTruckFinderController {
         if (userRepo.count() == 7){
 
             User u = new User();
-            u.setEmail("yeti@foodtruckfinder.com");
+            u.setEmail("MarylandCrabs@foodtruckfinder.com");
             u.setPassword("password");
-            u.setUserName("yeti");
+            u.setUserName("MarylandCrabs");
             u.setUserType(UserType.owner);
             u.setFoodTruck(foodTruckRepo.findOne(7));
             userRepo.save(u);
@@ -381,9 +385,9 @@ public class FoodTruckFinderController {
         if (userRepo.count() == 8){
 
             User u = new User();
-            u.setEmail("loveCLT@foodtruckfinder.com");
+            u.setEmail("VitosPizza@foodtruckfinder.com");
             u.setPassword("password");
-            u.setUserName("loveCLT");
+            u.setUserName("VitosPizza");
             u.setUserType(UserType.owner);
             u.setFoodTruck(foodTruckRepo.findOne(8));
             userRepo.save(u);
@@ -392,9 +396,9 @@ public class FoodTruckFinderController {
         if (userRepo.count() == 9){
 
             User u = new User();
-            u.setEmail("avalon@foodtruckfinder.com");
+            u.setEmail("Thai2Go@foodtruckfinder.com");
             u.setPassword("password");
-            u.setUserName("avalon");
+            u.setUserName("Thai2Go");
             u.setUserType(UserType.owner);
             u.setFoodTruck(foodTruckRepo.findOne(9));
             userRepo.save(u);
@@ -403,9 +407,9 @@ public class FoodTruckFinderController {
         if (userRepo.count() == 10){
 
             User u = new User();
-            u.setEmail("rollingthunder@foodtruckfinder.com");
+            u.setEmail("FreshMedFoodTruck@foodtruckfinder.com");
             u.setPassword("password");
-            u.setUserName("rollingthunder");
+            u.setUserName("FreshMedFoodTruck");
             u.setUserType(UserType.owner);
             u.setFoodTruck(foodTruckRepo.findOne(10));
             userRepo.save(u);
@@ -414,9 +418,9 @@ public class FoodTruckFinderController {
         if (userRepo.count() == 11){
 
             User u = new User();
-            u.setEmail("angelfood@foodtruckfinder.com");
+            u.setEmail("SoCalTaco@foodtruckfinder.com");
             u.setPassword("password");
-            u.setUserName("angelfood");
+            u.setUserName("SoCalTaco");
             u.setUserType(UserType.owner);
             u.setFoodTruck(foodTruckRepo.findOne(11));
             userRepo.save(u);
@@ -425,9 +429,9 @@ public class FoodTruckFinderController {
         if (userRepo.count() == 12){
 
             User u = new User();
-            u.setEmail("quesadillatime@foodtruckfinder.com");
+            u.setEmail("ComfortFoodsOnWheels@foodtruckfinder.com");
             u.setPassword("password");
-            u.setUserName("quesadillatime");
+            u.setUserName("ComfortFoods");
             u.setUserType(UserType.owner);
             u.setFoodTruck(foodTruckRepo.findOne(12));
             userRepo.save(u);
@@ -437,9 +441,9 @@ public class FoodTruckFinderController {
         if (userRepo.count() == 13){
 
             User u = new User();
-            u.setEmail("pinkunicorns@foodtruckfinder.com");
+            u.setEmail("ChennaiCurries@foodtruckfinder.com");
             u.setPassword("password");
-            u.setUserName("pinkunicorns");
+            u.setUserName("chennaicurries");
             u.setUserType(UserType.owner);
             u.setFoodTruck(foodTruckRepo.findOne(13));
             userRepo.save(u);
@@ -449,9 +453,9 @@ public class FoodTruckFinderController {
         if (userRepo.count() == 14) {
 
             User u = new User();
-            u.setEmail("queencityeats@foodtruckfinder.com");
+            u.setEmail("RicosAcai@foodtruckfinder.com");
             u.setPassword("password");
-            u.setUserName("queencityeats");
+            u.setUserName("RicosAcai");
             u.setUserType(UserType.owner);
             u.setFoodTruck(foodTruckRepo.findOne(14));
             userRepo.save(u);
@@ -461,9 +465,9 @@ public class FoodTruckFinderController {
         if (userRepo.count() == 15) {
 
             User u = new User();
-            u.setEmail("mobileeats@foodtruckfinder.com");
+            u.setEmail("AutoBurgerAndFryGuys@foodtruckfinder.com");
             u.setPassword("password");
-            u.setUserName("mobileeats");
+            u.setUserName("AutoBurger");
             u.setUserType(UserType.owner);
             u.setFoodTruck(foodTruckRepo.findOne(15));
             userRepo.save(u);
@@ -472,9 +476,9 @@ public class FoodTruckFinderController {
         if (userRepo.count() == 16) {
 
             User u = new User();
-            u.setEmail("uptownyums@foodtruckfinder.com");
+            u.setEmail("ABoaTime@foodtruckfinder.com");
             u.setPassword("password");
-            u.setUserName("uptownyums");
+            u.setUserName("ABoaTime");
             u.setUserType(UserType.owner);
             u.setFoodTruck(foodTruckRepo.findOne(16));
             userRepo.save(u);
@@ -483,9 +487,9 @@ public class FoodTruckFinderController {
         if (userRepo.count() == 17) {
 
             User u = new User();
-            u.setEmail("downtowngoods@foodtruckfinder.com");
+            u.setEmail("TwistedEats@foodtruckfinder.com");
             u.setPassword("password");
-            u.setUserName("downtowngoods");
+            u.setUserName("TwistedEats");
             u.setUserType(UserType.owner);
             u.setFoodTruck(foodTruckRepo.findOne(17));
             userRepo.save(u);
@@ -494,9 +498,9 @@ public class FoodTruckFinderController {
         if (userRepo.count() == 18) {
 
             User u = new User();
-            u.setEmail("takeouttakeover@foodtruckfinder.com");
+            u.setEmail("MakiTaco@foodtruckfinder.com");
             u.setPassword("password");
-            u.setUserName("takeouttakeover");
+            u.setUserName("MakiTaco");
             u.setUserType(UserType.owner);
             u.setFoodTruck(foodTruckRepo.findOne(18));
             userRepo.save(u);
@@ -505,9 +509,9 @@ public class FoodTruckFinderController {
         if (userRepo.count() == 19) {
 
             User u = new User();
-            u.setEmail("besttruckwinner@foodtruckfinder.com");
+            u.setEmail("TigerYakitori@foodtruckfinder.com");
             u.setPassword("password");
-            u.setUserName("besttruckwinner");
+            u.setUserName("TigerYakitori");
             u.setUserType(UserType.owner);
             u.setFoodTruck(foodTruckRepo.findOne(19));
             userRepo.save(u);
@@ -517,13 +521,15 @@ public class FoodTruckFinderController {
         if (userRepo.count() == 20) {
 
             User u = new User();
-            u.setEmail("wondertruck@foodtruckfinder.com");
+            u.setEmail("PinchosElBori@foodtruckfinder.com");
             u.setPassword("password");
-            u.setUserName("wondertruck");
+            u.setUserName("Pinchos");
             u.setUserType(UserType.owner);
             u.setFoodTruck(foodTruckRepo.findOne(20));
             userRepo.save(u);
         }
+
+//
     }
 
 //    @PostConstruct
