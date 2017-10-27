@@ -103,7 +103,6 @@ public class FoodTruck{
 
     public void setYelpId(String yelpId) {
         this.yelpId = yelpId;
-
     }
 
     public void setLocation(FoodTruckLocation location) {
