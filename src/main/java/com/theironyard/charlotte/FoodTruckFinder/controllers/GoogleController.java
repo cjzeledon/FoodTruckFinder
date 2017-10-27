@@ -49,10 +49,11 @@ public class GoogleController {
 
 //        YelpCoordinates coords = oneFoodTruck(truck_id);
 
+        // Identify the food truck's id by its yelpId that is found in the database. The yelpId is identical
+        // to what is found on Yelp API json file
         FoodTruck coordinate = foodTruckRepo.findFirstByYelpId(truck_id);
 
-        RestTemplate googleTemplate = new RestTemplate();
-
+        // Map the object
         ObjectMapper mapper = new ObjectMapper();
 
         URL url = new URL("https://maps.googleapis.com/maps/api/directions/json?origin=" + origin + "&destination=" + coordinate.getLocation().getLatitude() + "," + coordinate.getLocation().getLongitude() + "&mode=" + travelMode + "&key=" + GTOKEN);
