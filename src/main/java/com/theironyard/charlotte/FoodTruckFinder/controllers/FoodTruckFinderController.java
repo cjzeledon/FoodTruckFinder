@@ -600,8 +600,6 @@ public class FoodTruckFinderController {
         }
     }
 
-
-
     @PostConstruct
     public void truckLocation() {
         if(locationRepo.count() == 0) {
@@ -784,6 +782,7 @@ public class FoodTruckFinderController {
 
         }
     }
+
     @CrossOrigin
     @GetMapping("/foodtruck/all")
     public Iterable<FoodTruck> getAllFoodTrucks() {
