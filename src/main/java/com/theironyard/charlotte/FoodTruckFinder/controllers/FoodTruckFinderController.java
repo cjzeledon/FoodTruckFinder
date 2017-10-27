@@ -703,14 +703,14 @@ public class FoodTruckFinderController {
         }
     }
 
-    @CrossOrigin
-    @GetMapping("/foodtruck/all")
-    public Iterable<FoodTruck> getAllFoodTrucks() {
-        return foodTruckRepo.findAll();
-        }
+//    @CrossOrigin
+//    @GetMapping("/foodtruck/all")
+//    public Iterable<FoodTruck> getAllFoodTrucks() {
+//        return foodTruckRepo.findAll();
+//        }
 
     @CrossOrigin
-    @GetMapping("/foodtruck/test/all")
+    @GetMapping("/foodtruck/all")
     public Iterable<FoodTruck> getAllFoodTrucksTest() {
 
         RestTemplate yelpTemplate = new RestTemplate();
