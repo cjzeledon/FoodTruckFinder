@@ -131,7 +131,7 @@ public class FoodTruckFinderController {
 
         if (foodTruckRepo.count() == 7) {
 
-            FoodTruck t = new  FoodTruck();
+            FoodTruck t = new FoodTruck();
             t.setFoodType("pizza");
             t.setName("Vitos Pizza");
             t.setYelpId("vitos-pizza-charlotte-2");
@@ -177,7 +177,7 @@ public class FoodTruckFinderController {
             foodTruckRepo.save(t);
         }
 
-            if (foodTruckRepo.count() == 11) {
+        if (foodTruckRepo.count() == 11) {
 
             FoodTruck t = new FoodTruck();
             t.setFoodType("comfort food");
@@ -187,9 +187,9 @@ public class FoodTruckFinderController {
             t.setUrl("https://www.yelp.com/biz/comfort-foods-on-wheels-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
 //            t.setLocation(locationRepo.findOne(12));
             foodTruckRepo.save(t);
-            }
+        }
 
-            if (foodTruckRepo.count() == 12) {
+        if (foodTruckRepo.count() == 12) {
 
             FoodTruck t = new FoodTruck();
             t.setFoodType("indian");
@@ -199,9 +199,9 @@ public class FoodTruckFinderController {
             t.setUrl("https://www.yelp.com/biz/chennai-curries-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
 //            t.setLocation(locationRepo.findOne(13));
             foodTruckRepo.save(t);
-            }
+        }
 
-            if (foodTruckRepo.count() == 13) {
+        if (foodTruckRepo.count() == 13) {
 
             FoodTruck t = new FoodTruck();
             t.setFoodType("acai");
@@ -211,7 +211,7 @@ public class FoodTruckFinderController {
             t.setUrl("https://www.yelp.com/biz/ricos-acai-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
 //            t.setLocation(locationRepo.findOne(14));
             foodTruckRepo.save(t);
-            }
+        }
 
         if (foodTruckRepo.count() == 14) {
 
@@ -231,7 +231,7 @@ public class FoodTruckFinderController {
             t.setFoodType("bao");
             t.setName("A Bao Time");
             t.setYelpId("a-bao-time-charlotte");
-            t.setImageURL( "https://s3-media2.fl.yelpcdn.com/bphoto/6m6xKRP7dplVPJOEwml5gA/o.jpg");
+            t.setImageURL("https://s3-media2.fl.yelpcdn.com/bphoto/6m6xKRP7dplVPJOEwml5gA/o.jpg");
             t.setUrl("https://www.yelp.com/biz/a-bao-time-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
 //            t.setLocation(locationRepo.findOne(16));
             foodTruckRepo.save(t);
@@ -284,10 +284,6 @@ public class FoodTruckFinderController {
 //            t.setLocation(locationRepo.findOne(20));
             foodTruckRepo.save(t);
         }
-<<<<<<< HEAD
-=======
-
->>>>>>> 2190e025731146024ad3e27ea51614cca6aaa941
     }
 
     @PostConstruct
