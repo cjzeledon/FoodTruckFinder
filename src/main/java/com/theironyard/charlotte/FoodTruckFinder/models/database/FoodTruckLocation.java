@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.math.RoundingMode;
 import java.sql.Date;
+import java.text.DecimalFormat;
 
 @Entity
 @Table (name = "truck_location")
@@ -77,7 +79,10 @@ public class FoodTruckLocation {
     }
 
     public double getLatitude() {
-        return latitude;
+        DecimalFormat df = new DecimalFormat("#.####");
+        df.setRoundingMode(RoundingMode.DOWN);
+        return Double.valueOf(df.format(latitude));
+//        return latitude;
     }
 
     public void setLatitude(double latitude) {
@@ -85,7 +90,10 @@ public class FoodTruckLocation {
     }
 
     public double getLongitude() {
-        return longitude;
+        DecimalFormat df = new DecimalFormat("#.####");
+        df.setRoundingMode(RoundingMode.DOWN);
+        return Double.valueOf(df.format(longitude));
+//        return longitude;
     }
 
     public void setLongitude(double longitude) {

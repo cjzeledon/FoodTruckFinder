@@ -47,13 +47,16 @@ public class GoogleController {
     @GetMapping("/directions/{truck_id}")
     public JsonNode walkingDirection (@PathVariable String truck_id, @RequestParam String origin) throws IOException {
 
-        YelpCoordinates coords = oneFoodTruck(truck_id);
+//        YelpCoordinates coords = oneFoodTruck(truck_id);
 
-        RestTemplate googleTemplate = new RestTemplate();
+        // Identify the food truck's id by its yelpId that is found in the database. The yelpId is identical
+        // to what is found on Yelp API json file
+        FoodTruck coordinate = foodTruckRepo.findFirstByYelpId(truck_id);
 
+        // Map the object
         ObjectMapper mapper = new ObjectMapper();
 
-        URL url = new URL("https://maps.googleapis.com/maps/api/directions/json?origin=" + origin + "&destination=" + coords.getLatitude() + "," + coords.getLongitude() + "&mode=" + travelMode + "&key=" + GTOKEN);
+        URL url = new URL("https://maps.googleapis.com/maps/api/directions/json?origin=" + origin + "&destination=" + coordinate.getLocation().getLatitude() + "," + coordinate.getLocation().getLongitude() + "&mode=" + travelMode + "&key=" + GTOKEN);
         JsonNode gDirection = mapper.readValue(url, JsonNode.class);
         return gDirection;
 

@@ -4,22 +4,33 @@ import com.theironyard.charlotte.FoodTruckFinder.models.database.FoodTruckFavori
 import com.theironyard.charlotte.FoodTruckFinder.models.database.FoodTruckLocation;
 import com.theironyard.charlotte.FoodTruckFinder.models.database.User;
 import com.theironyard.charlotte.FoodTruckFinder.models.database.UserType;
+import com.theironyard.charlotte.FoodTruckFinder.models.yelp.YelpBusiness;
+import com.theironyard.charlotte.FoodTruckFinder.models.yelp.YelpCoordinates;
+import com.theironyard.charlotte.FoodTruckFinder.models.yelp.YelpResponse;
 import com.theironyard.charlotte.FoodTruckFinder.repositories.FavoritesRepository;
 import com.theironyard.charlotte.FoodTruckFinder.repositories.FoodTruckLocationRepository;
 import com.theironyard.charlotte.FoodTruckFinder.repositories.FoodTruckRepository;
 import com.theironyard.charlotte.FoodTruckFinder.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
+
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Date;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 public class FoodTruckFinderController {
     private final String USER_KEY = "user";
+    private static final String YTOKEN = System.getenv("YELP_ACCESS_KEY");
 
     @Autowired
     FoodTruckRepository foodTruckRepo;
@@ -279,6 +290,89 @@ public class FoodTruckFinderController {
             foodTruckRepo.save(t);
         }
 
+<<<<<<< HEAD
+=======
+//        if (foodTruckRepo.count() == 20) {
+//
+//            FoodTruck t = new FoodTruck();
+//            t.setFoodType("Greek");
+//            t.setName("Gyro Twins");
+//            t.setLocation(locationRepo.findOne(21));
+//            foodTruckRepo.save(t);
+//        }
+//
+//        if (foodTruckRepo.count() == 21) {
+//
+//            FoodTruck t = new FoodTruck();
+//            t.setFoodType("comfort food");
+//            t.setName("Comfort Food on Wheels");
+//            t.setLocation(locationRepo.findOne(22));
+//            foodTruckRepo.save(t);
+//        }
+//
+//        if (foodTruckRepo.count() == 22) {
+//
+//            FoodTruck t = new FoodTruck();
+//            t.setFoodType("chinese");
+//            t.setName("The Dumpling Lady");
+//            t.setLocation(locationRepo.findOne(23));
+//            foodTruckRepo.save(t);
+//        }
+//
+//        if (foodTruckRepo.count() == 23) {
+//
+//            FoodTruck t = new FoodTruck();
+//            t.setFoodType("BBQ");
+//            t.setName("Rocky top BBQ CO.");
+//            t.setLocation(locationRepo.findOne(24));
+//            foodTruckRepo.save(t);
+//        }
+//
+//        if (foodTruckRepo.count() == 24) {
+//
+//            FoodTruck t = new FoodTruck();
+//            t.setFoodType("New Orleans");
+//            t.setName("Magnolia's Poboys");
+//            t.setLocation(locationRepo.findOne(25));
+//            foodTruckRepo.save(t);
+//        }
+//
+//        if (foodTruckRepo.count() == 25) {
+//
+//            FoodTruck t = new FoodTruck();
+//            t.setFoodType("american");
+//            t.setName("Two Chicks and a Truck");
+//            t.setLocation(locationRepo.findOne(26));
+//            foodTruckRepo.save(t);
+//        }
+//
+//        if (foodTruckRepo.count() == 26) {
+//
+//            FoodTruck t = new FoodTruck();
+//            t.setFoodType("Mediterranean");
+//            t.setName("Zaroob");
+//            t.setLocation(locationRepo.findOne(27));
+//            foodTruckRepo.save(t);
+//        }
+//
+//        if (foodTruckRepo.count() == 27) {
+//
+//            FoodTruck t = new FoodTruck();
+//            t.setFoodType("Italian Ice");
+//            t.setName("Polo's homemade Italian water ice");
+//            t.setLocation(locationRepo.findOne(28));
+//            foodTruckRepo.save(t);
+//        }
+//
+//        if (foodTruckRepo.count() == 28) {
+//
+//            FoodTruck t = new FoodTruck();
+//            t.setFoodType("Vietnamese");
+//            t.setName("Yummi Banh Mi");
+//            t.setLocation(locationRepo.findOne(29));
+//            foodTruckRepo.save(t);
+//        }
+>>>>>>> ac35c595f33eeddd647b384f72417fc39a1247eb
 
 //        if (foodTruckRepo.count() == 20) {
 //
@@ -702,8 +796,6 @@ public class FoodTruckFinderController {
 
     }
 
-
-
     @PostConstruct
     public void truckLocation() {
         if(locationRepo.count() == 0) {
@@ -886,10 +978,96 @@ public class FoodTruckFinderController {
 
         }
     }
+
     @CrossOrigin
     @GetMapping("/foodtruck/all")
     public Iterable<FoodTruck> getAllFoodTrucks() {
         return foodTruckRepo.findAll();
+        }
+
+    @CrossOrigin
+    @GetMapping("/foodtruck/test/all")
+    public List<FoodTruck> getAllFoodTrucksTest() {
+        RestTemplate yelpTemplate = new RestTemplate();
+        HttpHeaders headers = new HttpHeaders();
+        headers.add(HttpHeaders.AUTHORIZATION, "Bearer " + YTOKEN);
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+
+        YelpResponse response = yelpTemplate
+                .exchange("https://api.yelp.com/v3/businesses/search?term=food+truck&latitude=35.227085&longitude=-80.843124",
+                        HttpMethod.GET,
+                        entity,
+                        YelpResponse.class)
+                .getBody();
+
+//        // Create new YelpCoordinates object to take in coordinates from yelp API
+//        YelpCoordinates yelpCoors = new YelpCoordinates();
+//
+//        // Create a new Food Truck object, focusing on the coordinates
+//        FoodTruck newTruck = new FoodTruck();
+//        FoodTruck dbTruck = foodTruckRepo.findFirstByYelpId(newTruck.getYelpId());
+//
+//        // For every food truck available in the database, check if the location is equal to null
+//        // If equal to null, get the coordinates from yelp API
+//        // Set that coordinates to the database and save it
+//        // Otherwise, pull the coordinates from the database < -- This doesn't make sense...?
+//        for (YelpBusiness business : response.getBusinesses()){
+//            if ( dbTruck != null){
+//                if (dbTruck.getLocation() != null){
+//                    newTruck.setLocation(dbTruck.getLocation());
+//                } else {
+//                    yelpCoors.setLatitude(business.getCoordinates().getLatitude());
+//                    yelpCoors.setLongitude(business.getCoordinates().getLatitude());
+////                    newTruck.setLocation(yelpCoors.getLatitude());
+//                }
+//            }
+//        }
+//
+//        return yelpCoors;
+
+//         trucks = new ArrayList<FoodTruck>();
+
+        // Get all food trucks from database
+        FoodTruck dbTruck = new FoodTruck();
+
+        List<FoodTruck> databaseTrucks = (List<FoodTruck>) foodTruckRepo.findAll();
+
+        YelpCoordinates yelpLocation = new YelpCoordinates();
+
+        FoodTruckLocation location = new FoodTruckLocation();
+
+        // Loop over them and if truck.getLocation() == null, make yelp request
+        for (FoodTruck truck : databaseTrucks){
+            if ( truck.getLocation() == null ){
+//                business.setCoordinates(business.getCoordinates().getLatitude());
+//                yelpLocation.setLatitude(business.getCoordinates().getLatitude());
+//                yelpLocation.getLongitude(business.getCoordinates().getLongitude());
+//                dbTruck.setLocation(yelpLocation);
+
+//                yelpLocation.setLongitude((business.getCoordinates().getLongitude()));
+//                yelpLocation.setLatitude((business.getCoordinates().getLatitude()));
+//                location.setLatitude(business.getCoordinates().getLatitude());
+//                location.setLongitude(business.getCoordinates().getLongitude());
+//                databaseTruck.setLocation(yelpLocation);
+
+//                truck.setLocation(response.getBusinesses());
+//                location.setLatitude(yelpLocation.getLatitude());
+//                location.getLongitude(yelpLocation.getLongitude());
+
+                location.setLatitude(truck.getLocation().getLatitude());
+                location.setLongitude(truck.getLocation().getLongitude());
+//                databaseTrucks.add(location);
+                dbTruck.setLocation(location);
+
+            }
+        }
+        // Get coordinates and add FoodTruckLocation to the current truck (do not save).
+        // Return arraylist of trucks.
+//        trucks.add(databaseTruck);
+//        return trucks;
+        databaseTrucks.add(dbTruck);
+        return databaseTrucks;
+
     }
 
     @CrossOrigin
@@ -980,6 +1158,7 @@ public class FoodTruckFinderController {
             FoodTruckLocation currentLocation = foodTruckRepo.findOne(currentUser.getFoodTruck().getId()).getLocation();
 
             currentLocation.setEndTime(new Date(Instant.now().toEpochMilli()));
+            currentLocation.setStartTime(null);
             locationRepo.save(currentLocation);
         } else{
             response.sendError(403, "No user was specified during this session.");
