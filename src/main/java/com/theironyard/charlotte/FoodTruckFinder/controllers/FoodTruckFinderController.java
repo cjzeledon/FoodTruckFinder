@@ -802,7 +802,7 @@ public class FoodTruckFinderController {
 
     @CrossOrigin
     @GetMapping("/foodtruck/test/all")
-    public YelpCoordinates getAllFoodTrucksTest() {
+    public List<FoodTruck> getAllFoodTrucksTest() {
         RestTemplate yelpTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.add(HttpHeaders.AUTHORIZATION, "Bearer " + YTOKEN);
@@ -840,35 +840,49 @@ public class FoodTruckFinderController {
 //
 //        return yelpCoors;
 
-        List<FoodTruck> trucks = new ArrayList<FoodTruck>();
+//         trucks = new ArrayList<FoodTruck>();
 
         // Get all food trucks from database
-        Iterable<FoodTruck> foodtruck = foodTruckRepo.findAll();
-
         FoodTruck dbTruck = new FoodTruck();
 
-        FoodTruck databaseTruck = (FoodTruck) foodTruckRepo.findAll();
+        List<FoodTruck> databaseTrucks = (List<FoodTruck>) foodTruckRepo.findAll();
 
         YelpCoordinates yelpLocation = new YelpCoordinates();
 
         FoodTruckLocation location = new FoodTruckLocation();
 
         // Loop over them and if truck.getLocation() == null, make yelp request
-        for (YelpBusiness business : response.getBusinesses()){
-            if ( databaseTruck.getLocation() == null ){
+        for (FoodTruck truck : databaseTrucks){
+            if ( truck.getLocation() == null ){
 //                business.setCoordinates(business.getCoordinates().getLatitude());
 //                yelpLocation.setLatitude(business.getCoordinates().getLatitude());
 //                yelpLocation.getLongitude(business.getCoordinates().getLongitude());
 //                dbTruck.setLocation(yelpLocation);
-                location.setLatitude(business.getCoordinates().getLatitude());
-                location.setLongitude(business.getCoordinates().getLongitude());
-                databaseTruck.setLocation(location);
+
+//                yelpLocation.setLongitude((business.getCoordinates().getLongitude()));
+//                yelpLocation.setLatitude((business.getCoordinates().getLatitude()));
+//                location.setLatitude(business.getCoordinates().getLatitude());
+//                location.setLongitude(business.getCoordinates().getLongitude());
+//                databaseTruck.setLocation(yelpLocation);
+
+//                truck.setLocation(response.getBusinesses());
+//                location.setLatitude(yelpLocation.getLatitude());
+//                location.getLongitude(yelpLocation.getLongitude());
+
+                location.setLatitude(truck.getLocation().getLatitude());
+                location.setLongitude(truck.getLocation().getLongitude());
+//                databaseTrucks.add(location);
+                dbTruck.setLocation(location);
+
             }
         }
         // Get coordinates and add FoodTruckLocation to the current truck (do not save).
         // Return arraylist of trucks.
-        trucks.add(databaseTruck);
-        return (YelpCoordinates) trucks;
+//        trucks.add(databaseTruck);
+//        return trucks;
+        databaseTrucks.add(dbTruck);
+        return databaseTrucks;
+
     }
 
     @CrossOrigin
@@ -959,6 +973,7 @@ public class FoodTruckFinderController {
             FoodTruckLocation currentLocation = foodTruckRepo.findOne(currentUser.getFoodTruck().getId()).getLocation();
 
             currentLocation.setEndTime(new Date(Instant.now().toEpochMilli()));
+            currentLocation.setStartTime(null);
             locationRepo.save(currentLocation);
         } else{
             response.sendError(403, "No user was specified during this session.");
