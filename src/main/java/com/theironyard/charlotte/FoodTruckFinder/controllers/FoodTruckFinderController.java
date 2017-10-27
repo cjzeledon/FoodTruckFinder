@@ -290,170 +290,6 @@ public class FoodTruckFinderController {
             foodTruckRepo.save(t);
         }
 
-
-//        if (foodTruckRepo.count() == 20) {
-//
-//            FoodTruck t = new FoodTruck();
-//            t.setFoodType("Greek");
-//            t.setName("Gyro Twins");
-//            t.setLocation(locationRepo.findOne(21));
-//            foodTruckRepo.save(t);
-//        }
-//
-//        if (foodTruckRepo.count() == 21) {
-//
-//            FoodTruck t = new FoodTruck();
-//            t.setFoodType("comfort food");
-//            t.setName("Comfort Food on Wheels");
-//            t.setLocation(locationRepo.findOne(22));
-//            foodTruckRepo.save(t);
-//        }
-//
-//        if (foodTruckRepo.count() == 22) {
-//
-//            FoodTruck t = new FoodTruck();
-//            t.setFoodType("chinese");
-//            t.setName("The Dumpling Lady");
-//            t.setLocation(locationRepo.findOne(23));
-//            foodTruckRepo.save(t);
-//        }
-//
-//        if (foodTruckRepo.count() == 23) {
-//
-//            FoodTruck t = new FoodTruck();
-//            t.setFoodType("BBQ");
-//            t.setName("Rocky top BBQ CO.");
-//            t.setLocation(locationRepo.findOne(24));
-//            foodTruckRepo.save(t);
-//        }
-//
-//        if (foodTruckRepo.count() == 24) {
-//
-//            FoodTruck t = new FoodTruck();
-//            t.setFoodType("New Orleans");
-//            t.setName("Magnolia's Poboys");
-//            t.setLocation(locationRepo.findOne(25));
-//            foodTruckRepo.save(t);
-//        }
-//
-//        if (foodTruckRepo.count() == 25) {
-//
-//            FoodTruck t = new FoodTruck();
-//            t.setFoodType("american");
-//            t.setName("Two Chicks and a Truck");
-//            t.setLocation(locationRepo.findOne(26));
-//            foodTruckRepo.save(t);
-//        }
-//
-//        if (foodTruckRepo.count() == 26) {
-//
-//            FoodTruck t = new FoodTruck();
-//            t.setFoodType("Mediterranean");
-//            t.setName("Zaroob");
-//            t.setLocation(locationRepo.findOne(27));
-//            foodTruckRepo.save(t);
-//        }
-//
-//        if (foodTruckRepo.count() == 27) {
-//
-//            FoodTruck t = new FoodTruck();
-//            t.setFoodType("Italian Ice");
-//            t.setName("Polo's homemade Italian water ice");
-//            t.setLocation(locationRepo.findOne(28));
-//            foodTruckRepo.save(t);
-//        }
-//
-//        if (foodTruckRepo.count() == 28) {
-//
-//            FoodTruck t = new FoodTruck();
-//            t.setFoodType("Vietnamese");
-//            t.setName("Yummi Banh Mi");
-//            t.setLocation(locationRepo.findOne(29));
-//            foodTruckRepo.save(t);
-//        }
-
-//        if (foodTruckRepo.count() == 20) {
-//
-//            FoodTruck t = new FoodTruck();
-//            t.setFoodType("Greek");
-//            t.setName("Gyro Twins");
-//            t.setLocation(locationRepo.findOne(21));
-//            foodTruckRepo.save(t);
-//        }
-//
-//        if (foodTruckRepo.count() == 21) {
-//
-//            FoodTruck t = new FoodTruck();
-//            t.setFoodType("comfort food");
-//            t.setName("Comfort Food on Wheels");
-//            t.setLocation(locationRepo.findOne(22));
-//            foodTruckRepo.save(t);
-//        }
-//
-//        if (foodTruckRepo.count() == 22) {
-//
-//            FoodTruck t = new FoodTruck();
-//            t.setFoodType("chinese");
-//            t.setName("The Dumpling Lady");
-//            t.setLocation(locationRepo.findOne(23));
-//            foodTruckRepo.save(t);
-//        }
-//
-//        if (foodTruckRepo.count() == 23) {
-//
-//            FoodTruck t = new FoodTruck();
-//            t.setFoodType("BBQ");
-//            t.setName("Rocky top BBQ CO.");
-//            t.setLocation(locationRepo.findOne(24));
-//            foodTruckRepo.save(t);
-//        }
-//
-//        if (foodTruckRepo.count() == 24) {
-//
-//            FoodTruck t = new FoodTruck();
-//            t.setFoodType("New Orleans");
-//            t.setName("Magnolia's Poboys");
-//            t.setLocation(locationRepo.findOne(25));
-//            foodTruckRepo.save(t);
-//        }
-//
-//        if (foodTruckRepo.count() == 25) {
-//
-//            FoodTruck t = new FoodTruck();
-//            t.setFoodType("american");
-//            t.setName("Two Chicks and a Truck");
-//            t.setLocation(locationRepo.findOne(26));
-//            foodTruckRepo.save(t);
-//        }
-//
-//        if (foodTruckRepo.count() == 26) {
-//
-//            FoodTruck t = new FoodTruck();
-//            t.setFoodType("Mediterranean");
-//            t.setName("Zaroob");
-//            t.setLocation(locationRepo.findOne(27));
-//            foodTruckRepo.save(t);
-//        }
-//
-//        if (foodTruckRepo.count() == 27) {
-//
-//            FoodTruck t = new FoodTruck();
-//            t.setFoodType("Italian Ice");
-//            t.setName("Polo's homemade Italian water ice");
-//            t.setLocation(locationRepo.findOne(28));
-//            foodTruckRepo.save(t);
-//        }
-//
-//        if (foodTruckRepo.count() == 28) {
-//
-//            FoodTruck t = new FoodTruck();
-//            t.setFoodType("Vietnamese");
-//            t.setName("Yummi Banh Mi");
-//            t.setLocation(locationRepo.findOne(29));
-//            foodTruckRepo.save(t);
-//        }
-
-
     }
 
     @PostConstruct
@@ -591,9 +427,9 @@ public class FoodTruckFinderController {
         if (userRepo.count() == 12){
 
             User u = new User();
-            u.setEmail("quesadillatime@foodtruckfinder.com");
+            u.setEmail("ComfortFoodsOnWheels@foodtruckfinder.com");
             u.setPassword("password");
-            u.setUserName("quesadillatime");
+            u.setUserName("ComfortFoods");
             u.setUserType(UserType.owner);
             u.setFoodTruck(foodTruckRepo.findOne(12));
             userRepo.save(u);
@@ -603,9 +439,9 @@ public class FoodTruckFinderController {
         if (userRepo.count() == 13){
 
             User u = new User();
-            u.setEmail("pinkunicorns@foodtruckfinder.com");
+            u.setEmail("ChennaiCurries@foodtruckfinder.com");
             u.setPassword("password");
-            u.setUserName("pinkunicorns");
+            u.setUserName("chennaicurries");
             u.setUserType(UserType.owner);
             u.setFoodTruck(foodTruckRepo.findOne(13));
             userRepo.save(u);
@@ -615,9 +451,9 @@ public class FoodTruckFinderController {
         if (userRepo.count() == 14) {
 
             User u = new User();
-            u.setEmail("queencityeats@foodtruckfinder.com");
+            u.setEmail("RicosAcai@foodtruckfinder.com");
             u.setPassword("password");
-            u.setUserName("queencityeats");
+            u.setUserName("RicosAcai");
             u.setUserType(UserType.owner);
             u.setFoodTruck(foodTruckRepo.findOne(14));
             userRepo.save(u);
@@ -627,9 +463,9 @@ public class FoodTruckFinderController {
         if (userRepo.count() == 15) {
 
             User u = new User();
-            u.setEmail("mobileeats@foodtruckfinder.com");
+            u.setEmail("AutoBurgerAndFryGuys@foodtruckfinder.com");
             u.setPassword("password");
-            u.setUserName("mobileeats");
+            u.setUserName("AutoBurger");
             u.setUserType(UserType.owner);
             u.setFoodTruck(foodTruckRepo.findOne(15));
             userRepo.save(u);
@@ -638,9 +474,9 @@ public class FoodTruckFinderController {
         if (userRepo.count() == 16) {
 
             User u = new User();
-            u.setEmail("uptownyums@foodtruckfinder.com");
+            u.setEmail("ABoaTime@foodtruckfinder.com");
             u.setPassword("password");
-            u.setUserName("uptownyums");
+            u.setUserName("ABoaTime");
             u.setUserType(UserType.owner);
             u.setFoodTruck(foodTruckRepo.findOne(16));
             userRepo.save(u);
@@ -649,9 +485,9 @@ public class FoodTruckFinderController {
         if (userRepo.count() == 17) {
 
             User u = new User();
-            u.setEmail("downtowngoods@foodtruckfinder.com");
+            u.setEmail("TwistedEats@foodtruckfinder.com");
             u.setPassword("password");
-            u.setUserName("downtowngoods");
+            u.setUserName("TwistedEats");
             u.setUserType(UserType.owner);
             u.setFoodTruck(foodTruckRepo.findOne(17));
             userRepo.save(u);
@@ -660,9 +496,9 @@ public class FoodTruckFinderController {
         if (userRepo.count() == 18) {
 
             User u = new User();
-            u.setEmail("takeouttakeover@foodtruckfinder.com");
+            u.setEmail("MakiTaco@foodtruckfinder.com");
             u.setPassword("password");
-            u.setUserName("takeouttakeover");
+            u.setUserName("MakiTaco");
             u.setUserType(UserType.owner);
             u.setFoodTruck(foodTruckRepo.findOne(18));
             userRepo.save(u);
@@ -671,9 +507,9 @@ public class FoodTruckFinderController {
         if (userRepo.count() == 19) {
 
             User u = new User();
-            u.setEmail("besttruckever@foodtruckfinder.com");
+            u.setEmail("TigerYakitori@foodtruckfinder.com");
             u.setPassword("password");
-            u.setUserName("besttruckever");
+            u.setUserName("TigerYakitori");
             u.setUserType(UserType.owner);
             u.setFoodTruck(foodTruckRepo.findOne(19));
             userRepo.save(u);
@@ -683,115 +519,15 @@ public class FoodTruckFinderController {
         if (userRepo.count() == 20) {
 
             User u = new User();
-            u.setEmail("wondertruck@foodtruckfinder.com");
+            u.setEmail("PinchosElBori@foodtruckfinder.com");
             u.setPassword("password");
-            u.setUserName("wondertruck");
+            u.setUserName("Pinchos");
             u.setUserType(UserType.owner);
             u.setFoodTruck(foodTruckRepo.findOne(20));
             userRepo.save(u);
         }
 
-//        if (userRepo.count() == 21) {
 //
-//            User u = new User();
-//            u.setEmail("ducktruck@foodtruckfinder.com");
-//            u.setPassword("password");
-//            u.setUserName("ducktruck");
-//            u.setUserType(UserType.owner);
-//            u.setFoodTruck(foodTruckRepo.findOne(21));
-//            userRepo.save(u);
-//        }
-//
-//        if (userRepo.count() == 22) {
-//
-//            User u = new User();
-//            u.setEmail("coffeetruck@foodtruckfinder.com");
-//            u.setPassword("password");
-//            u.setUserName("coffeetruck");
-//            u.setUserType(UserType.owner);
-//            u.setFoodTruck(foodTruckRepo.findOne(22));
-//            userRepo.save(u);
-//        }
-//
-//        if (userRepo.count() == 23) {
-//
-//            User u = new User();
-//            u.setEmail("truckaholic@foodtruckfinder.com");
-//            u.setPassword("password");
-//            u.setUserName("truckaholic");
-//            u.setUserType(UserType.owner);
-//            u.setFoodTruck(foodTruckRepo.findOne(23));
-//            userRepo.save(u);
-//
-//        }
-//
-//        if (userRepo.count() == 24) {
-//
-//            User u = new User();
-//            u.setEmail("chickentruck@foodtruckfinder.com");
-//            u.setPassword("password");
-//            u.setUserName("chickentruck");
-//            u.setUserType(UserType.owner);
-//            u.setFoodTruck(foodTruckRepo.findOne(24));
-//            userRepo.save(u);
-//        }
-//
-//        if (userRepo.count() == 25) {
-//
-//            User u = new User();
-//            u.setEmail("truckmaster@foodtruckfinder.com");
-//            u.setPassword("password");
-//            u.setUserName("truckmaster");
-//            u.setUserType(UserType.owner);
-//            u.setFoodTruck(foodTruckRepo.findOne(25));
-//            userRepo.save(u);
-//        }
-//
-//        if (userRepo.count() == 26) {
-//
-//            User u = new User();
-//            u.setEmail("chateaugyro@foodtruckfinder.com");
-//            u.setPassword("password");
-//            u.setUserName("chateaugyro");
-//            u.setUserType(UserType.owner);
-//            u.setFoodTruck(foodTruckRepo.findOne(26));
-//            userRepo.save(u);
-//        }
-//
-//        if (userRepo.count() == 27) {
-//
-//            User u = new User();
-//            u.setEmail("wingsinatruck@foodtruckfinder.com");
-//            u.setPassword("password");
-//            u.setUserName("wingsinatruck");
-//            u.setUserType(UserType.owner);
-//            u.setFoodTruck(foodTruckRepo.findOne(27));
-//            userRepo.save(u);
-//        }
-//
-//        if (userRepo.count() == 28) {
-//
-//            User u = new User();
-//            u.setEmail("tacofiend@foodtruckfinder.com");
-//            u.setPassword("password");
-//            u.setUserName("tacofiend");
-//            u.setUserType(UserType.owner);
-//            u.setFoodTruck(foodTruckRepo.findOne(28));
-//            userRepo.save(u);
-//        }
-//
-//        if (userRepo.count() == 29) {
-//
-//            User u = new User();
-//            u.setEmail("whateverittrucks@foodtruckfinder.com");
-//            u.setPassword("password");
-//            u.setUserName("whateverittrucks");
-//            u.setUserType(UserType.owner);
-//            u.setFoodTruck(foodTruckRepo.findOne(29));
-//            userRepo.save(u);
-//        }
-
-
     }
 
     @PostConstruct
