@@ -18,7 +18,7 @@ public class FoodTruck{
     @Column (nullable = true, updatable = true)
     private String foodType;
 
-    @Column (nullable = true, updatable = false)
+    @Column (nullable = false, updatable = false, unique = true)
     private String yelpId;
 
     @Column (nullable = true, updatable = false)

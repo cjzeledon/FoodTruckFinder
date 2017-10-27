@@ -49,14 +49,13 @@ public class FoodTruckFinderController {
 
         // if there are no food trucks in the repository..
         if (foodTruckRepo.count() == 0) {
-
             FoodTruck t = new FoodTruck();
             t.setFoodType("tacos");
             t.setYelpId("tin-kitchen-charlotte-2");
             t.setName("TIN Kitchen");
             t.setImageURL("https://s3-media3.fl.yelpcdn.com/bphoto/5U3u-sZ6Vx5oV9mdBw4-Ig/o.jpg");
             t.setUrl("https://www.yelp.com/biz/tin-kitchen-charlotte-2?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
-            t.setLocation(locationRepo.findOne(1));
+//            t.setLocation(locationRepo.findOne(1));
             foodTruckRepo.save(t);
         }
 
@@ -68,7 +67,7 @@ public class FoodTruckFinderController {
             t.setName("Papi Queso");
             t.setImageURL("https://s3-media3.fl.yelpcdn.com/bphoto/zlq_gcqvoxY3TGVyMaPg9g/o.jpg");
             t.setUrl("https://www.yelp.com/biz/papi-queso-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
-            t.setLocation(locationRepo.findOne(2));
+//            t.setLocation(locationRepo.findOne(2));
             foodTruckRepo.save(t);
 
         }
@@ -79,10 +78,10 @@ public class FoodTruckFinderController {
             FoodTruck t = new FoodTruck();
             t.setFoodType("Halal");
             t.setName("Mi Barrio's Halal Cart");
-            t.setYelpId("mi-barrios-halal-cart-chalotte");
+            t.setYelpId("mi-barrios-halal-cart-charlotte");
             t.setImageURL("https://s3-media4.fl.yelpcdn.com/bphoto/GQMfzEetRC-WNlPRBiheMA/o.jpg");
             t.setUrl("https://www.yelp.com/biz/mi-barrios-halal-cart-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
-            t.setLocation(locationRepo.findOne(3));
+//            t.setLocation(locationRepo.findOne(3));
             foodTruckRepo.save(t);
         }
 
@@ -94,7 +93,7 @@ public class FoodTruckFinderController {
             t.setYelpId("food-truck-friday-charlotte-charlotte");
             t.setImageURL("https://s3-media3.fl.yelpcdn.com/bphoto/xUiSXQo8Dr0QV8-SiwjxyA/o.jpg");
             t.setUrl("https://www.yelp.com/biz/food-truck-friday-charlotte-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
-            t.setLocation(locationRepo.findOne(4));
+//            t.setLocation(locationRepo.findOne(4));
             foodTruckRepo.save(t);
         }
 
@@ -106,7 +105,7 @@ public class FoodTruckFinderController {
             t.setYelpId("the-cookin-coop-charlotte");
             t.setImageURL("https://s3-media1.fl.yelpcdn.com/bphoto/DpOmefPgbOIoP-cJqUBlRw/o.jpg");
             t.setUrl("https://www.yelp.com/biz/the-cookin-coop-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
-            t.setLocation(locationRepo.findOne(5));
+//            t.setLocation(locationRepo.findOne(5));
             foodTruckRepo.save(t);
         }
 
@@ -118,7 +117,7 @@ public class FoodTruckFinderController {
             t.setYelpId("roaming-fork-charlotte-2");
             t.setImageURL("https://s3-media2.fl.yelpcdn.com/bphoto/u2e93f8bh6AZowGAlvVdFA/o.jpg");
             t.setUrl("https://www.yelp.com/biz/roaming-fork-charlotte-2?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
-            t.setLocation(locationRepo.findOne(6));
+//            t.setLocation(locationRepo.findOne(6));
             foodTruckRepo.save(t);
         }
 
@@ -130,7 +129,7 @@ public class FoodTruckFinderController {
             t.setYelpId("maryland-crab-and-co-charlotte");
             t.setImageURL("https://s3-media1.fl.yelpcdn.com/bphoto/iRstX0a2QRu5os3eloEQhg/o.jpg");
             t.setUrl("https://s3-media1.fl.yelpcdn.com/bphoto/iRstX0a2QRu5os3eloEQhg/o.jpg");
-            t.setLocation(locationRepo.findOne(7));
+//            t.setLocation(locationRepo.findOne(7));
             foodTruckRepo.save(t);
         }
 
@@ -142,7 +141,7 @@ public class FoodTruckFinderController {
             t.setYelpId("vitos-pizza-charlotte-2");
             t.setImageURL("https://s3-media1.fl.yelpcdn.com/bphoto/oFFeiIe1JOc1IC7tqiDJAw/o.jpg");
             t.setUrl("https://www.yelp.com/biz/vitos-pizza-charlotte-2?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
-            t.setLocation(locationRepo.findOne(8));
+//            t.setLocation(locationRepo.findOne(8));
             foodTruckRepo.save(t);
         }
 
@@ -154,7 +153,7 @@ public class FoodTruckFinderController {
             t.setYelpId("thai-2-go-concord");
             t.setImageURL("https://s3-media2.fl.yelpcdn.com/bphoto/8rmMM6-SFZWkmo9sPU190A/o.jpg");
             t.setUrl("https://www.yelp.com/biz/thai-2-go-concord?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
-            t.setLocation(locationRepo.findOne(9));
+//            t.setLocation(locationRepo.findOne(9));
             foodTruckRepo.save(t);
         }
 
@@ -166,7 +165,7 @@ public class FoodTruckFinderController {
             t.setYelpId("fresh-med-food-truck-charlotte");
             t.setImageURL("https://s3-media4.fl.yelpcdn.com/bphoto/ZJE3pD30Yyl-FMceu0DxvA/o.jpg");
             t.setUrl("https://www.yelp.com/biz/fresh-med-food-truck-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
-            t.setLocation(locationRepo.findOne(10));
+//            t.setLocation(locationRepo.findOne(10));
             foodTruckRepo.save(t);
         }
 
@@ -178,7 +177,7 @@ public class FoodTruckFinderController {
             t.setYelpId("socal-taco-stand-charlotte");
             t.setImageURL("https://s3-media2.fl.yelpcdn.com/bphoto/pmdhI5Nz_mNLtnbualIOiQ/o.jpg");
             t.setUrl("https://www.yelp.com/biz/socal-taco-stand-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
-            t.setLocation(locationRepo.findOne(11));
+//            t.setLocation(locationRepo.findOne(11));
             foodTruckRepo.save(t);
         }
 
@@ -190,7 +189,7 @@ public class FoodTruckFinderController {
             t.setYelpId("comfort-foods-on-wheels-charlotte");
             t.setImageURL("https://s3-media4.fl.yelpcdn.com/bphoto/7PArhaUfNT_ktIyTM53BlQ/o.jpg");
             t.setUrl("https://www.yelp.com/biz/comfort-foods-on-wheels-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
-            t.setLocation(locationRepo.findOne(12));
+//            t.setLocation(locationRepo.findOne(12));
             foodTruckRepo.save(t);
             }
 
@@ -202,7 +201,7 @@ public class FoodTruckFinderController {
             t.setYelpId("chennia-curries-charlotte");
             t.setImageURL("https://s3-media4.fl.yelpcdn.com/bphoto/lh5-waABMQkeZKaRoM-jXA/o.jpg");
             t.setUrl("https://www.yelp.com/biz/chennai-curries-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
-            t.setLocation(locationRepo.findOne(13));
+//            t.setLocation(locationRepo.findOne(13));
             foodTruckRepo.save(t);
             }
 
@@ -214,7 +213,7 @@ public class FoodTruckFinderController {
             t.setYelpId("ricos-acai-charlotte");
             t.setImageURL("https://s3-media1.fl.yelpcdn.com/bphoto/4lPRtI5TDk6hDlLUrBiVvw/o.jpg");
             t.setUrl("https://www.yelp.com/biz/ricos-acai-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
-            t.setLocation(locationRepo.findOne(14));
+//            t.setLocation(locationRepo.findOne(14));
             foodTruckRepo.save(t);
             }
 
@@ -226,7 +225,7 @@ public class FoodTruckFinderController {
             t.setYelpId("auto-burger-and-fry-guys");
             t.setImageURL("https://s3-media3.fl.yelpcdn.com/bphoto/6CXQB-PR7UxU0uX8RN6i0Q/o.jpg");
             t.setUrl("https://www.yelp.com/biz/auto-burger-and-fry-guys-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
-            t.setLocation(locationRepo.findOne(15));
+//            t.setLocation(locationRepo.findOne(15));
             foodTruckRepo.save(t);
         }
 
@@ -238,7 +237,7 @@ public class FoodTruckFinderController {
             t.setYelpId("a-bao-time-charlotte");
             t.setImageURL( "https://s3-media2.fl.yelpcdn.com/bphoto/6m6xKRP7dplVPJOEwml5gA/o.jpg");
             t.setUrl("https://www.yelp.com/biz/a-bao-time-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
-            t.setLocation(locationRepo.findOne(16));
+//            t.setLocation(locationRepo.findOne(16));
             foodTruckRepo.save(t);
         }
 
@@ -250,7 +249,7 @@ public class FoodTruckFinderController {
             t.setYelpId("twisted-eats-charlotte");
             t.setImageURL("https://s3-media4.fl.yelpcdn.com/bphoto/VIkyH8svISIZuFVDhI62gw/o.jpg");
             t.setUrl("https://www.yelp.com/biz/twisted-eats-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
-            t.setLocation(locationRepo.findOne(17));
+//            t.setLocation(locationRepo.findOne(17));
             foodTruckRepo.save(t);
         }
 
@@ -262,7 +261,7 @@ public class FoodTruckFinderController {
             t.setYelpId("maki-taco-charlotte");
             t.setImageURL("https://s3-media2.fl.yelpcdn.com/bphoto/TRa2LgNA5fnZ_NIyrmrzNQ/o.jpg");
             t.setUrl("https://www.yelp.com/biz/maki-taco-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
-            t.setLocation(locationRepo.findOne(18));
+//            t.setLocation(locationRepo.findOne(18));
             foodTruckRepo.save(t);
         }
 
@@ -274,7 +273,7 @@ public class FoodTruckFinderController {
             t.setYelpId("tiger-yakitori-charlotte");
             t.setUrl("https://www.yelp.com/biz/tiger-yakitori-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
             t.setImageURL("https://s3-media2.fl.yelpcdn.com/bphoto/8kls0_u_K7-vK2Makbdmog/o.jpg");
-            t.setLocation(locationRepo.findOne(19));
+//            t.setLocation(locationRepo.findOne(19));
             foodTruckRepo.save(t);
         }
 
@@ -286,93 +285,9 @@ public class FoodTruckFinderController {
             t.setYelpId("pinchos-el-bori-charlotte");
             t.setImageURL("https://s3-media3.fl.yelpcdn.com/bphoto/kCSv3rp4V1HNeyaa9FeFxw/o.jpg");
             t.setUrl("https://www.yelp.com/biz/pinchos-el-bori-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
-            t.setLocation(locationRepo.findOne(20));
+//            t.setLocation(locationRepo.findOne(20));
             foodTruckRepo.save(t);
         }
-
-//        if (foodTruckRepo.count() == 20) {
-//
-//            FoodTruck t = new FoodTruck();
-//            t.setFoodType("Greek");
-//            t.setName("Gyro Twins");
-//            t.setLocation(locationRepo.findOne(21));
-//            foodTruckRepo.save(t);
-//        }
-//
-//        if (foodTruckRepo.count() == 21) {
-//
-//            FoodTruck t = new FoodTruck();
-//            t.setFoodType("comfort food");
-//            t.setName("Comfort Food on Wheels");
-//            t.setLocation(locationRepo.findOne(22));
-//            foodTruckRepo.save(t);
-//        }
-//
-//        if (foodTruckRepo.count() == 22) {
-//
-//            FoodTruck t = new FoodTruck();
-//            t.setFoodType("chinese");
-//            t.setName("The Dumpling Lady");
-//            t.setLocation(locationRepo.findOne(23));
-//            foodTruckRepo.save(t);
-//        }
-//
-//        if (foodTruckRepo.count() == 23) {
-//
-//            FoodTruck t = new FoodTruck();
-//            t.setFoodType("BBQ");
-//            t.setName("Rocky top BBQ CO.");
-//            t.setLocation(locationRepo.findOne(24));
-//            foodTruckRepo.save(t);
-//        }
-//
-//        if (foodTruckRepo.count() == 24) {
-//
-//            FoodTruck t = new FoodTruck();
-//            t.setFoodType("New Orleans");
-//            t.setName("Magnolia's Poboys");
-//            t.setLocation(locationRepo.findOne(25));
-//            foodTruckRepo.save(t);
-//        }
-//
-//        if (foodTruckRepo.count() == 25) {
-//
-//            FoodTruck t = new FoodTruck();
-//            t.setFoodType("american");
-//            t.setName("Two Chicks and a Truck");
-//            t.setLocation(locationRepo.findOne(26));
-//            foodTruckRepo.save(t);
-//        }
-//
-//        if (foodTruckRepo.count() == 26) {
-//
-//            FoodTruck t = new FoodTruck();
-//            t.setFoodType("Mediterranean");
-//            t.setName("Zaroob");
-//            t.setLocation(locationRepo.findOne(27));
-//            foodTruckRepo.save(t);
-//        }
-//
-//        if (foodTruckRepo.count() == 27) {
-//
-//            FoodTruck t = new FoodTruck();
-//            t.setFoodType("Italian Ice");
-//            t.setName("Polo's homemade Italian water ice");
-//            t.setLocation(locationRepo.findOne(28));
-//            foodTruckRepo.save(t);
-//        }
-//
-//        if (foodTruckRepo.count() == 28) {
-//
-//            FoodTruck t = new FoodTruck();
-//            t.setFoodType("Vietnamese");
-//            t.setName("Yummi Banh Mi");
-//            t.setLocation(locationRepo.findOne(29));
-//            foodTruckRepo.save(t);
-//        }
-
-
-
     }
 
     @PostConstruct
@@ -611,177 +526,174 @@ public class FoodTruckFinderController {
         }
     }
 
-    @PostConstruct
-    public void truckLocation() {
-        if(locationRepo.count() == 0) {
-          FoodTruckLocation l = new FoodTruckLocation();
-          l.setLatitude(32.23039);
-          l.setLongitude(-80.84439);
-          l.setFoodTruck(foodTruckRepo.findOne(1));
-          locationRepo.save(l);
-        }
-
-        if(locationRepo.count() == 1) {
-            FoodTruckLocation l = new FoodTruckLocation();
-            l.setLatitude(35.227855682373);
-            l.setLongitude(-80.8443069458008);
-            l.setFoodTruck(foodTruckRepo.findOne(2));
-            locationRepo.save(l);
-        }
-
-        if(locationRepo.count() == 2) {
-            FoodTruckLocation l = new FoodTruckLocation();
-            l.setLatitude(35.21392);
-            l.setLongitude(-80.85811);
-            l.setFoodTruck(foodTruckRepo.findOne(3));
-            locationRepo.save(l);
-        }
-
-        if(locationRepo.count() == 3) {
-            FoodTruckLocation l = new FoodTruckLocation();
-            l.setLatitude(35.21392);
-            l.setLongitude(-80.85811);
-            l.setFoodTruck(foodTruckRepo.findOne(4));
-            locationRepo.save(l);
-        }
-
-        if(locationRepo.count() == 4) {
-            FoodTruckLocation l = new FoodTruckLocation();
-            l.setLatitude(35.22287);
-            l.setLongitude(-80.83796);
-            l.setFoodTruck(foodTruckRepo.findOne(5));
-            locationRepo.save(l);
-        }
-        if (locationRepo.count() == 5) {
-            FoodTruckLocation l = new FoodTruckLocation();
-            l.setLatitude(35.21135);
-            l.setLongitude(-80.83387);
-            l.setFoodTruck(foodTruckRepo.findOne(6));
-            locationRepo.save(l);
-        }
-
-        if (locationRepo.count() == 6) {
-            FoodTruckLocation l = new FoodTruckLocation();
-            l.setLatitude(35.22287);
-            l.setLongitude(-80.83796);
-            l.setFoodTruck(foodTruckRepo.findOne(7));
-            locationRepo.save(l);
-        }
-
-        if (locationRepo.count() == 7) {
-            FoodTruckLocation l = new FoodTruckLocation();
-            l.setLatitude(0.0);
-            l.setLongitude(0.0);
-            l.setFoodTruck(foodTruckRepo.findOne(8));
-            locationRepo.save(l);
-        }
-
-        if (locationRepo.count() == 8) {
-            FoodTruckLocation l = new FoodTruckLocation();
-            l.setLatitude(35.2261484);
-            l.setLongitude(-80.8447673);
-            l.setFoodTruck(foodTruckRepo.findOne(9));
-            locationRepo.save(l);
-        }
-
-        if (locationRepo.count() == 9) {
-            FoodTruckLocation l = new FoodTruckLocation();
-            l.setLatitude(35.2113);
-            l.setLongitude(-80.8338);
-            l.setFoodTruck(foodTruckRepo.findOne(10));
-            locationRepo.save(l);
-        }
-
-        if (locationRepo.count() == 10) {
-            FoodTruckLocation l = new FoodTruckLocation();
-            l.setLatitude(35.2256);
-            l.setLongitude(-80.8454);
-            l.setFoodTruck(foodTruckRepo.findOne(11));
-            locationRepo.save(l);
-        }
-
-        if (locationRepo.count() == 11) {
-            FoodTruckLocation l = new FoodTruckLocation();
-            l.setLatitude(35.2270);
-            l.setLongitude(-80.8431);
-            l.setFoodTruck(foodTruckRepo.findOne(12));
-            locationRepo.save(l);
-        }
-
-        if (locationRepo.count() == 12) {
-            FoodTruckLocation l = new FoodTruckLocation();
-            l.setLatitude(35.2303);
-            l.setLongitude(-80.8443);
-            l.setFoodTruck(foodTruckRepo.findOne(13));
-            locationRepo.save(l);
-        }
-
-        if (locationRepo.count() == 13) {
-
-            FoodTruckLocation l = new FoodTruckLocation();
-            l.setLatitude(35.2232);
-            l.setLongitude(-80.847133);
-            l.setFoodTruck(foodTruckRepo.findOne(14));
-            locationRepo.save(l);
-        }
-
-        if (locationRepo.count() == 14) {
-
-            FoodTruckLocation l = new FoodTruckLocation();
-            l.setLatitude(35.2263);
-            l.setLongitude(-80.8560);
-            l.setFoodTruck(foodTruckRepo.findOne(15));
-            locationRepo.save(l);
-        }
-
-        if (locationRepo.count() == 15) {
-
-            FoodTruckLocation l = new FoodTruckLocation();
-            l.setLatitude(35.2013);
-            l.setLongitude(-80.8738);
-            l.setFoodTruck(foodTruckRepo.findOne(16));
-            locationRepo.save(l);
-        }
-
-        if (locationRepo.count() == 16) {
-
-            FoodTruckLocation l = new FoodTruckLocation();
-            l.setLatitude(35.2166);
-            l.setLongitude(-80.85654);
-            l.setFoodTruck(foodTruckRepo.findOne(17));
-            locationRepo.save(l);
-        }
-
-        if (locationRepo.count() == 17) {
-
-            FoodTruckLocation l = new FoodTruckLocation();
-            l.setLatitude(35.2228);
-            l.setLongitude(-80.8379);
-            l.setFoodTruck(foodTruckRepo.findOne(18));
-            locationRepo.save(l);
-        }
-
-        if (locationRepo.count() == 18) {
-
-            FoodTruckLocation l = new FoodTruckLocation();
-            l.setLatitude(35.2271);
-            l.setLongitude(-80.8427);
-            l.setFoodTruck(foodTruckRepo.findOne(19));
-            locationRepo.save(l);
-        }
-
-        if (locationRepo.count() == 19) {
-
-            FoodTruckLocation l = new FoodTruckLocation();
-            l.setLatitude(35.2278);
-            l.setLongitude(-80.83535);
-            l.setFoodTruck(foodTruckRepo.findOne(20));
-            locationRepo.save(l);
-        }
-
-
-
-    }
+//    @PostConstruct
+//    public void truckLocation() {
+////        if(locationRepo.count() == 0) {
+////          FoodTruckLocation l = new FoodTruckLocation();
+////          l.setLatitude(32.23039);
+////          l.setLongitude(-80.84439);
+////          l.setFoodTruck(foodTruckRepo.findOne(1));
+////          locationRepo.save(l);
+////        }
+//
+//        if(locationRepo.count() == 1) {
+//            FoodTruckLocation l = new FoodTruckLocation();
+//            l.setLatitude(35.227855682373);
+//            l.setLongitude(-80.8443069458008);
+//            l.setFoodTruck(foodTruckRepo.findOne(2));
+//            locationRepo.save(l);
+//        }
+//
+//        if(locationRepo.count() == 2) {
+//            FoodTruckLocation l = new FoodTruckLocation();
+//            l.setLatitude(35.21392);
+//            l.setLongitude(-80.85811);
+//            l.setFoodTruck(foodTruckRepo.findOne(3));
+//            locationRepo.save(l);
+//        }
+//
+//        if(locationRepo.count() == 3) {
+//            FoodTruckLocation l = new FoodTruckLocation();
+//            l.setLatitude(35.21392);
+//            l.setLongitude(-80.85811);
+//            l.setFoodTruck(foodTruckRepo.findOne(4));
+//            locationRepo.save(l);
+//        }
+//
+//        if(locationRepo.count() == 4) {
+//            FoodTruckLocation l = new FoodTruckLocation();
+//            l.setLatitude(35.22287);
+//            l.setLongitude(-80.83796);
+//            l.setFoodTruck(foodTruckRepo.findOne(5));
+//            locationRepo.save(l);
+//        }
+//        if (locationRepo.count() == 5) {
+//            FoodTruckLocation l = new FoodTruckLocation();
+//            l.setLatitude(35.21135);
+//            l.setLongitude(-80.83387);
+//            l.setFoodTruck(foodTruckRepo.findOne(6));
+//            locationRepo.save(l);
+//        }
+//
+//        if (locationRepo.count() == 6) {
+//            FoodTruckLocation l = new FoodTruckLocation();
+//            l.setLatitude(35.22287);
+//            l.setLongitude(-80.83796);
+//            l.setFoodTruck(foodTruckRepo.findOne(7));
+//            locationRepo.save(l);
+//        }
+//
+//        if (locationRepo.count() == 7) {
+//            FoodTruckLocation l = new FoodTruckLocation();
+//            l.setLatitude(0.0);
+//            l.setLongitude(0.0);
+//            l.setFoodTruck(foodTruckRepo.findOne(8));
+//            locationRepo.save(l);
+//        }
+//
+//        if (locationRepo.count() == 8) {
+//            FoodTruckLocation l = new FoodTruckLocation();
+//            l.setLatitude(35.2261484);
+//            l.setLongitude(-80.8447673);
+//            l.setFoodTruck(foodTruckRepo.findOne(9));
+//            locationRepo.save(l);
+//        }
+//
+//        if (locationRepo.count() == 9) {
+//            FoodTruckLocation l = new FoodTruckLocation();
+//            l.setLatitude(35.2113);
+//            l.setLongitude(-80.8338);
+//            l.setFoodTruck(foodTruckRepo.findOne(10));
+//            locationRepo.save(l);
+//        }
+//
+//        if (locationRepo.count() == 10) {
+//            FoodTruckLocation l = new FoodTruckLocation();
+//            l.setLatitude(35.2256);
+//            l.setLongitude(-80.8454);
+//            l.setFoodTruck(foodTruckRepo.findOne(11));
+//            locationRepo.save(l);
+//        }
+//
+//        if (locationRepo.count() == 11) {
+//            FoodTruckLocation l = new FoodTruckLocation();
+//            l.setLatitude(35.2270);
+//            l.setLongitude(-80.8431);
+//            l.setFoodTruck(foodTruckRepo.findOne(12));
+//            locationRepo.save(l);
+//        }
+//
+//        if (locationRepo.count() == 12) {
+//            FoodTruckLocation l = new FoodTruckLocation();
+//            l.setLatitude(35.2303);
+//            l.setLongitude(-80.8443);
+//            l.setFoodTruck(foodTruckRepo.findOne(13));
+//            locationRepo.save(l);
+//        }
+//
+//        if (locationRepo.count() == 13) {
+//
+//            FoodTruckLocation l = new FoodTruckLocation();
+//            l.setLatitude(35.2232);
+//            l.setLongitude(-80.847133);
+//            l.setFoodTruck(foodTruckRepo.findOne(14));
+//            locationRepo.save(l);
+//        }
+//
+//        if (locationRepo.count() == 14) {
+//
+//            FoodTruckLocation l = new FoodTruckLocation();
+//            l.setLatitude(35.2263);
+//            l.setLongitude(-80.8560);
+//            l.setFoodTruck(foodTruckRepo.findOne(15));
+//            locationRepo.save(l);
+//        }
+//
+//        if (locationRepo.count() == 15) {
+//
+//            FoodTruckLocation l = new FoodTruckLocation();
+//            l.setLatitude(35.2013);
+//            l.setLongitude(-80.8738);
+//            l.setFoodTruck(foodTruckRepo.findOne(16));
+//            locationRepo.save(l);
+//        }
+//
+//        if (locationRepo.count() == 16) {
+//
+//            FoodTruckLocation l = new FoodTruckLocation();
+//            l.setLatitude(35.2166);
+//            l.setLongitude(-80.85654);
+//            l.setFoodTruck(foodTruckRepo.findOne(17));
+//            locationRepo.save(l);
+//        }
+//
+//        if (locationRepo.count() == 17) {
+//
+//            FoodTruckLocation l = new FoodTruckLocation();
+//            l.setLatitude(35.2228);
+//            l.setLongitude(-80.8379);
+//            l.setFoodTruck(foodTruckRepo.findOne(18));
+//            locationRepo.save(l);
+//        }
+//
+//        if (locationRepo.count() == 18) {
+//
+//            FoodTruckLocation l = new FoodTruckLocation();
+//            l.setLatitude(35.2271);
+//            l.setLongitude(-80.8427);
+//            l.setFoodTruck(foodTruckRepo.findOne(19));
+//            locationRepo.save(l);
+//        }
+//
+//        if (locationRepo.count() == 19) {
+//
+//            FoodTruckLocation l = new FoodTruckLocation();
+//            l.setLatitude(35.2278);
+//            l.setLongitude(-80.83535);
+//            l.setFoodTruck(foodTruckRepo.findOne(20));
+//            locationRepo.save(l);
+//        }
+//    }
 
     @PostConstruct
     public void userFavorites() {
@@ -790,7 +702,6 @@ public class FoodTruckFinderController {
             f.setUser(userRepo.findOne(1));
             f.setTruck(foodTruckRepo.findOne(1));
             favoritesRepo.save(f);
-
         }
     }
 
@@ -802,8 +713,10 @@ public class FoodTruckFinderController {
 
     @CrossOrigin
     @GetMapping("/foodtruck/test/all")
-    public List<FoodTruck> getAllFoodTrucksTest() {
+    public Iterable<FoodTruck> getAllFoodTrucksTest() {
+
         RestTemplate yelpTemplate = new RestTemplate();
+
         HttpHeaders headers = new HttpHeaders();
         headers.add(HttpHeaders.AUTHORIZATION, "Bearer " + YTOKEN);
         HttpEntity<String> entity = new HttpEntity<>(headers);
@@ -815,74 +728,24 @@ public class FoodTruckFinderController {
                         YelpResponse.class)
                 .getBody();
 
-//        // Create new YelpCoordinates object to take in coordinates from yelp API
-//        YelpCoordinates yelpCoors = new YelpCoordinates();
-//
-//        // Create a new Food Truck object, focusing on the coordinates
-//        FoodTruck newTruck = new FoodTruck();
-//        FoodTruck dbTruck = foodTruckRepo.findFirstByYelpId(newTruck.getYelpId());
-//
-//        // For every food truck available in the database, check if the location is equal to null
-//        // If equal to null, get the coordinates from yelp API
-//        // Set that coordinates to the database and save it
-//        // Otherwise, pull the coordinates from the database < -- This doesn't make sense...?
-//        for (YelpBusiness business : response.getBusinesses()){
-//            if ( dbTruck != null){
-//                if (dbTruck.getLocation() != null){
-//                    newTruck.setLocation(dbTruck.getLocation());
-//                } else {
-//                    yelpCoors.setLatitude(business.getCoordinates().getLatitude());
-//                    yelpCoors.setLongitude(business.getCoordinates().getLatitude());
-////                    newTruck.setLocation(yelpCoors.getLatitude());
-//                }
-//            }
-//        }
-//
-//        return yelpCoors;
 
-//         trucks = new ArrayList<FoodTruck>();
+        for (YelpBusiness business : response.getBusinesses()) {
+            FoodTruck truck = foodTruckRepo.findFirstByYelpId(business.getId());
 
-        // Get all food trucks from database
-        FoodTruck dbTruck = new FoodTruck();
+            if (truck != null && truck.getLocation() == null) {
+                FoodTruckLocation loc = new FoodTruckLocation();
 
-        List<FoodTruck> databaseTrucks = (List<FoodTruck>) foodTruckRepo.findAll();
+                loc.setLatitude(business.getCoordinates().getLatitude());
+                loc.setLongitude(business.getCoordinates().getLongitude());
 
-        YelpCoordinates yelpLocation = new YelpCoordinates();
-
-        FoodTruckLocation location = new FoodTruckLocation();
-
-        // Loop over them and if truck.getLocation() == null, make yelp request
-        for (FoodTruck truck : databaseTrucks){
-            if ( truck.getLocation() == null ){
-//                business.setCoordinates(business.getCoordinates().getLatitude());
-//                yelpLocation.setLatitude(business.getCoordinates().getLatitude());
-//                yelpLocation.getLongitude(business.getCoordinates().getLongitude());
-//                dbTruck.setLocation(yelpLocation);
-
-//                yelpLocation.setLongitude((business.getCoordinates().getLongitude()));
-//                yelpLocation.setLatitude((business.getCoordinates().getLatitude()));
-//                location.setLatitude(business.getCoordinates().getLatitude());
-//                location.setLongitude(business.getCoordinates().getLongitude());
-//                databaseTruck.setLocation(yelpLocation);
-
-//                truck.setLocation(response.getBusinesses());
-//                location.setLatitude(yelpLocation.getLatitude());
-//                location.getLongitude(yelpLocation.getLongitude());
-
-                location.setLatitude(truck.getLocation().getLatitude());
-                location.setLongitude(truck.getLocation().getLongitude());
-//                databaseTrucks.add(location);
-                dbTruck.setLocation(location);
-
+                truck.setLocation(loc);
+                locationRepo.save(loc);
+//                truck.setLocation(locationRepo.save(loc));
+                foodTruckRepo.save(truck);
             }
         }
-        // Get coordinates and add FoodTruckLocation to the current truck (do not save).
-        // Return arraylist of trucks.
-//        trucks.add(databaseTruck);
-//        return trucks;
-        databaseTrucks.add(dbTruck);
-        return databaseTrucks;
 
+        return foodTruckRepo.findAll();
     }
 
     @CrossOrigin
@@ -910,6 +773,12 @@ public class FoodTruckFinderController {
             // already exists in the database
             response.sendError(422, "Username already exists. Please try again.");
         }
+    }
+
+    @CrossOrigin
+    @PostMapping("/logout")
+    public void signOut(HttpSession session){
+        session.removeAttribute(USER_KEY);
     }
 
     @CrossOrigin
@@ -974,6 +843,7 @@ public class FoodTruckFinderController {
 
             currentLocation.setEndTime(new Date(Instant.now().toEpochMilli()));
             currentLocation.setStartTime(null);
+
             locationRepo.save(currentLocation);
         } else{
             response.sendError(403, "No user was specified during this session.");
