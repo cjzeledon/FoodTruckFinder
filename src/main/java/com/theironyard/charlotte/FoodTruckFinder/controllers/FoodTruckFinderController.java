@@ -5,7 +5,6 @@ import com.theironyard.charlotte.FoodTruckFinder.models.database.FoodTruckLocati
 import com.theironyard.charlotte.FoodTruckFinder.models.database.User;
 import com.theironyard.charlotte.FoodTruckFinder.models.database.UserType;
 import com.theironyard.charlotte.FoodTruckFinder.models.yelp.YelpBusiness;
-import com.theironyard.charlotte.FoodTruckFinder.models.yelp.YelpCoordinates;
 import com.theironyard.charlotte.FoodTruckFinder.models.yelp.YelpResponse;
 import com.theironyard.charlotte.FoodTruckFinder.repositories.FavoritesRepository;
 import com.theironyard.charlotte.FoodTruckFinder.repositories.FoodTruckLocationRepository;
@@ -17,15 +16,12 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
-
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Date;
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.List;
 
 @RestController
 public class FoodTruckFinderController {
