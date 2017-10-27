@@ -4,22 +4,33 @@ import com.theironyard.charlotte.FoodTruckFinder.models.database.FoodTruckFavori
 import com.theironyard.charlotte.FoodTruckFinder.models.database.FoodTruckLocation;
 import com.theironyard.charlotte.FoodTruckFinder.models.database.User;
 import com.theironyard.charlotte.FoodTruckFinder.models.database.UserType;
+import com.theironyard.charlotte.FoodTruckFinder.models.yelp.YelpBusiness;
+import com.theironyard.charlotte.FoodTruckFinder.models.yelp.YelpCoordinates;
+import com.theironyard.charlotte.FoodTruckFinder.models.yelp.YelpResponse;
 import com.theironyard.charlotte.FoodTruckFinder.repositories.FavoritesRepository;
 import com.theironyard.charlotte.FoodTruckFinder.repositories.FoodTruckLocationRepository;
 import com.theironyard.charlotte.FoodTruckFinder.repositories.FoodTruckRepository;
 import com.theironyard.charlotte.FoodTruckFinder.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
+
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Date;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 public class FoodTruckFinderController {
     private final String USER_KEY = "user";
+    private static final String YTOKEN = System.getenv("YELP_ACCESS_KEY");
 
     @Autowired
     FoodTruckRepository foodTruckRepo;
@@ -788,6 +799,77 @@ public class FoodTruckFinderController {
     public Iterable<FoodTruck> getAllFoodTrucks() {
         return foodTruckRepo.findAll();
         }
+
+    @CrossOrigin
+    @GetMapping("/foodtruck/test/all")
+    public YelpCoordinates getAllFoodTrucksTest() {
+        RestTemplate yelpTemplate = new RestTemplate();
+        HttpHeaders headers = new HttpHeaders();
+        headers.add(HttpHeaders.AUTHORIZATION, "Bearer " + YTOKEN);
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+
+        YelpResponse response = yelpTemplate
+                .exchange("https://api.yelp.com/v3/businesses/search?term=food+truck&latitude=35.227085&longitude=-80.843124",
+                        HttpMethod.GET,
+                        entity,
+                        YelpResponse.class)
+                .getBody();
+
+//        // Create new YelpCoordinates object to take in coordinates from yelp API
+//        YelpCoordinates yelpCoors = new YelpCoordinates();
+//
+//        // Create a new Food Truck object, focusing on the coordinates
+//        FoodTruck newTruck = new FoodTruck();
+//        FoodTruck dbTruck = foodTruckRepo.findFirstByYelpId(newTruck.getYelpId());
+//
+//        // For every food truck available in the database, check if the location is equal to null
+//        // If equal to null, get the coordinates from yelp API
+//        // Set that coordinates to the database and save it
+//        // Otherwise, pull the coordinates from the database < -- This doesn't make sense...?
+//        for (YelpBusiness business : response.getBusinesses()){
+//            if ( dbTruck != null){
+//                if (dbTruck.getLocation() != null){
+//                    newTruck.setLocation(dbTruck.getLocation());
+//                } else {
+//                    yelpCoors.setLatitude(business.getCoordinates().getLatitude());
+//                    yelpCoors.setLongitude(business.getCoordinates().getLatitude());
+////                    newTruck.setLocation(yelpCoors.getLatitude());
+//                }
+//            }
+//        }
+//
+//        return yelpCoors;
+
+        List<FoodTruck> trucks = new ArrayList<FoodTruck>();
+
+        // Get all food trucks from database
+        Iterable<FoodTruck> foodtruck = foodTruckRepo.findAll();
+
+        FoodTruck dbTruck = new FoodTruck();
+
+        FoodTruck databaseTruck = (FoodTruck) foodTruckRepo.findAll();
+
+        YelpCoordinates yelpLocation = new YelpCoordinates();
+
+        FoodTruckLocation location = new FoodTruckLocation();
+
+        // Loop over them and if truck.getLocation() == null, make yelp request
+        for (YelpBusiness business : response.getBusinesses()){
+            if ( databaseTruck.getLocation() == null ){
+//                business.setCoordinates(business.getCoordinates().getLatitude());
+//                yelpLocation.setLatitude(business.getCoordinates().getLatitude());
+//                yelpLocation.getLongitude(business.getCoordinates().getLongitude());
+//                dbTruck.setLocation(yelpLocation);
+                location.setLatitude(business.getCoordinates().getLatitude());
+                location.setLongitude(business.getCoordinates().getLongitude());
+                databaseTruck.setLocation(location);
+            }
+        }
+        // Get coordinates and add FoodTruckLocation to the current truck (do not save).
+        // Return arraylist of trucks.
+        trucks.add(databaseTruck);
+        return (YelpCoordinates) trucks;
+    }
 
     @CrossOrigin
     @PostMapping("/login")
