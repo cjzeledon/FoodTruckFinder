@@ -194,7 +194,7 @@ public class FoodTruckFinderController {
             FoodTruck t = new FoodTruck();
             t.setFoodType("indian");
             t.setName("Chennai Curries");
-            t.setYelpId("chennai-curries-charlotte");
+            t.setYelpId("chennai-curries-charlotte-2");
             t.setImageURL("https://s3-media4.fl.yelpcdn.com/bphoto/lh5-waABMQkeZKaRoM-jXA/o.jpg");
             t.setUrl("https://www.yelp.com/biz/chennai-curries-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
 //            t.setLocation(locationRepo.findOne(13));
@@ -218,7 +218,7 @@ public class FoodTruckFinderController {
             FoodTruck t = new FoodTruck();
             t.setFoodType("american");
             t.setName("Auto Burger And Fry Guys");
-            t.setYelpId("auto-burger-and-fry-guys");
+            t.setYelpId("auto-burger-and-fry-guys-charlotte");
             t.setImageURL("https://s3-media3.fl.yelpcdn.com/bphoto/6CXQB-PR7UxU0uX8RN6i0Q/o.jpg");
             t.setUrl("https://www.yelp.com/biz/auto-burger-and-fry-guys-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
 //            t.setLocation(locationRepo.findOne(15));
