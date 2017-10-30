@@ -78,6 +78,7 @@ public class FoodTruckLocation {
         this.id = id;
     }
 
+    // Will automatically trim the coordinate numbers to the first four digits after the dot.
     public double getLatitude() {
         DecimalFormat df = new DecimalFormat("#.####");
         df.setRoundingMode(RoundingMode.DOWN);
@@ -89,6 +90,7 @@ public class FoodTruckLocation {
         this.latitude = latitude;
     }
 
+    // Will automatically trim coordinate numbers to the first four digits after the dot.
     public double getLongitude() {
         DecimalFormat df = new DecimalFormat("#.####");
         df.setRoundingMode(RoundingMode.DOWN);
