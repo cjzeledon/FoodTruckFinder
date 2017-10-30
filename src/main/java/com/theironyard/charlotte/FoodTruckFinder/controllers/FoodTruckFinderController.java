@@ -740,16 +740,17 @@ public class FoodTruckFinderController {
 
                 locationRepo.save(loc);
                 foodTruckRepo.save(truck);
-            } else if (truck != null && business.getCoordinates() == null){
-                FoodTruckLocation loc = new FoodTruckLocation();
-
-                loc.setLatitude(35.225829);
-                loc.setLongitude(-80.840362);
-                loc.setFoodTruck(truck);
-
-                locationRepo.save(loc);
-                foodTruckRepo.save(truck);
             }
+// else if (truck != null && business.getCoordinates() == null){
+//                FoodTruckLocation loc = new FoodTruckLocation();
+//
+//                loc.setLatitude(35.225829);
+//                loc.setLongitude(-80.840362);
+//                loc.setFoodTruck(truck);
+//
+//                locationRepo.save(loc);
+//                foodTruckRepo.save(truck);
+//            }
         }
 
         return foodTruckRepo.findAll();
