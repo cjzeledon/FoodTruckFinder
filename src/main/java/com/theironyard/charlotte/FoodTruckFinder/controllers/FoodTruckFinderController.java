@@ -194,7 +194,7 @@ public class FoodTruckFinderController {
             FoodTruck t = new FoodTruck();
             t.setFoodType("indian");
             t.setName("Chennai Curries");
-            t.setYelpId("chennia-curries-charlotte");
+            t.setYelpId("chennai-curries-charlotte");
             t.setImageURL("https://s3-media4.fl.yelpcdn.com/bphoto/lh5-waABMQkeZKaRoM-jXA/o.jpg");
             t.setUrl("https://www.yelp.com/biz/chennai-curries-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
 //            t.setLocation(locationRepo.findOne(13));
@@ -273,17 +273,17 @@ public class FoodTruckFinderController {
             foodTruckRepo.save(t);
         }
 
-        if (foodTruckRepo.count() == 19) {
-
-            FoodTruck t = new FoodTruck();
-            t.setFoodType("Puerto Rican");
-            t.setName("Pinchos El Bori");
-            t.setYelpId("pinchos-el-bori-charlotte");
-            t.setImageURL("https://s3-media3.fl.yelpcdn.com/bphoto/kCSv3rp4V1HNeyaa9FeFxw/o.jpg");
-            t.setUrl("https://www.yelp.com/biz/pinchos-el-bori-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
+//        if (foodTruckRepo.count() == 19) {
+//
+//            FoodTruck t = new FoodTruck();
+//            t.setFoodType("Puerto Rican");
+//            t.setName("Pinchos El Bori");
+//            t.setYelpId("pinchos-el-bori-charlotte");
+//            t.setImageURL("https://s3-media3.fl.yelpcdn.com/bphoto/kCSv3rp4V1HNeyaa9FeFxw/o.jpg");
+//            t.setUrl("https://www.yelp.com/biz/pinchos-el-bori-charlotte?adjust_creative=kxLUL3GYhNpkDoNv66cpmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kxLUL3GYhNpkDoNv66cpmA");
 //            t.setLocation(locationRepo.findOne(20));
-            foodTruckRepo.save(t);
-        }
+//            foodTruckRepo.save(t);
+//        }
     }
 
     @PostConstruct
@@ -709,6 +709,7 @@ public class FoodTruckFinderController {
 //        return foodTruckRepo.findAll();
 //        }
 
+
     @CrossOrigin
     @GetMapping("/foodtruck/all")
     public Iterable<FoodTruck> getAllFoodTrucksTest() {
@@ -735,10 +736,18 @@ public class FoodTruckFinderController {
 
                 loc.setLatitude(business.getCoordinates().getLatitude());
                 loc.setLongitude(business.getCoordinates().getLongitude());
+                loc.setFoodTruck(truck);
 
-                truck.setLocation(loc);
                 locationRepo.save(loc);
-//                truck.setLocation(locationRepo.save(loc));
+                foodTruckRepo.save(truck);
+            } else if (truck != null && business.getCoordinates() == null){
+                FoodTruckLocation loc = new FoodTruckLocation();
+
+                loc.setLatitude(35.225829);
+                loc.setLongitude(-80.840362);
+                loc.setFoodTruck(truck);
+
+                locationRepo.save(loc);
                 foodTruckRepo.save(truck);
             }
         }
