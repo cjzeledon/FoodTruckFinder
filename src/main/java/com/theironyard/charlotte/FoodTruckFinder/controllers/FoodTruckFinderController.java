@@ -834,16 +834,29 @@ public class FoodTruckFinderController {
 
         // If the user is an owner, add a special to their assigned food truck
         if (u.getUserType().equals(UserType.owner)){
+//            u.getFoodTruck().getId();
+//            u.setFoodTruck(special.setTruck(););
+
+            special.setTruck(u.getFoodTruck());
+
+
 //            special.setId(u.getFoodTruck().getId());
 //            special.getTruck().getId();
 //            special.getName();
 //            special.getDescription();
 //            special.setTruck();
             specialRepo.save(special);
+            foodTruckRepo.save(special.getTruck());
             userRepo.save(u);
         } else {
             response.sendError(422, "User is not a food truck owner and cannot add a special to food truck.");
         }
+    }
+
+    @CrossOrigin
+    @GetMapping("/special/all")
+    public Iterable<FoodTruckSpecial> getAllSpecials(){
+        return specialRepo.findAll();
     }
 
     // Allows the current "owner" to update the food truck's location. NOTE: This is a "post" method.

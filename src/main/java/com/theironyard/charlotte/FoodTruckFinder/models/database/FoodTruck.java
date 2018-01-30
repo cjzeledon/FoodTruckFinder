@@ -37,8 +37,9 @@ public class FoodTruck{
 //    @JoinColumn(name = "special_id")
 //    private Set<FoodTruckSpecial> special;
 
-//    @OneToMany(mappedBy = "foodtruck")
-//    private Set<FoodTruckSpecial> special;
+    @OneToMany
+    // Assign one food truck to several special (meals)
+    private Set<FoodTruckSpecial> special;
 
     public FoodTruck() {
     }
@@ -114,11 +115,11 @@ public class FoodTruck{
         this.location = location;
     }
 
-//    public Set<FoodTruckSpecial> getSpecial() {
-//        return special;
-//    }
-//
-//    public void setSpecial(Set<FoodTruckSpecial> special) {
-//        this.special = special;
-//    }
+    public Set<FoodTruckSpecial> getSpecial() {
+        return special;
+    }
+
+    public void setSpecial(Set<FoodTruckSpecial> special) {
+        this.special = special;
+    }
 }
