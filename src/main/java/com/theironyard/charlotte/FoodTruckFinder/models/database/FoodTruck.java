@@ -1,8 +1,7 @@
 package com.theironyard.charlotte.FoodTruckFinder.models.database;
 
-import org.hibernate.annotations.Cascade;
-
 import javax.persistence.*;
+import java.util.Set;
 
 
 @Entity
@@ -34,6 +33,12 @@ public class FoodTruck{
 //    @Cascade(org.hibernate.annotations.CascadeType.ALL) // This means when FoodTruck is saved, save the user as well.
     private User user;
 
+//    @OneToMany
+//    @JoinColumn(name = "special_id")
+//    private Set<FoodTruckSpecial> special;
+
+//    @OneToMany(mappedBy = "foodtruck")
+//    private Set<FoodTruckSpecial> special;
 
     public FoodTruck() {
     }
@@ -108,4 +113,12 @@ public class FoodTruck{
     public void setLocation(FoodTruckLocation location) {
         this.location = location;
     }
+
+//    public Set<FoodTruckSpecial> getSpecial() {
+//        return special;
+//    }
+//
+//    public void setSpecial(Set<FoodTruckSpecial> special) {
+//        this.special = special;
+//    }
 }
