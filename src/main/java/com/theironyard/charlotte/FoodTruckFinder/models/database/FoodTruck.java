@@ -6,7 +6,7 @@ import java.util.Set;
 
 @Entity
 @Table(name="food_truck")
-public class FoodTruck{
+public class FoodTruck {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
@@ -37,9 +37,9 @@ public class FoodTruck{
 //    @JoinColumn(name = "special_id")
 //    private Set<FoodTruckSpecial> special;
 
-    @OneToMany
-    // Assign one food truck to several special (meals)
-    private Set<FoodTruckSpecial> special;
+//    @OneToMany
+//    // Assign one food truck to several special (meals)
+//    private Set<FoodTruckSpecial> special;
 
     public FoodTruck() {
     }
@@ -113,13 +113,5 @@ public class FoodTruck{
 
     public void setLocation(FoodTruckLocation location) {
         this.location = location;
-    }
-
-    public Set<FoodTruckSpecial> getSpecial() {
-        return special;
-    }
-
-    public void setSpecial(Set<FoodTruckSpecial> special) {
-        this.special = special;
     }
 }

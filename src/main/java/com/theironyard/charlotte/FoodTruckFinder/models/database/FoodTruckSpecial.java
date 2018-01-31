@@ -1,6 +1,7 @@
 package com.theironyard.charlotte.FoodTruckFinder.models.database;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "special")
@@ -17,7 +18,7 @@ public class FoodTruckSpecial {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "foodtruck_id", nullable = false)
+    @JoinColumn(name = "foodtruck_id")
     private FoodTruck truck;
 
 
@@ -61,5 +62,15 @@ public class FoodTruckSpecial {
 
     public void setTruck(FoodTruck truck) {
         this.truck = truck;
+    }
+
+    @Override
+    public String toString() {
+        return "FoodTruckSpecial{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", descriptionA='" + description + '\'' +
+                ", truck=" + truck +
+                '}';
     }
 }
