@@ -965,4 +965,9 @@ public class FoodTruckFinderController {
         }
 
     }
+
+    @GetMapping("/favorites/all")
+    public Iterable<FoodTruckFavorite> viewAllFavorites(){
+        return favoritesRepo.findAll();
+    }
 }
