@@ -15,6 +15,14 @@ public class FoodTruckFavorite {
     @OneToOne
     private User user;
 
+    public FoodTruckFavorite() {
+    }
+    public FoodTruckFavorite(int id, FoodTruck truck, User user) {
+        this.id = id;
+        this.truck = truck;
+        this.user = user;
+    }
+
     public User getUser() {
         return user;
     }
@@ -37,5 +45,13 @@ public class FoodTruckFavorite {
 
     public void setTruck(FoodTruck truck) {
         this.truck = truck;
+    }
+
+    @Override
+    public String toString() {
+        return "FoodTruckFavorite{" +
+                "id=" + id +
+                ", truck=" + truck +
+                '}';
     }
 }

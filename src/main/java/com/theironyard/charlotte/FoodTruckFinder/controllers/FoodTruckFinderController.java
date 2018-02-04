@@ -940,7 +940,7 @@ public class FoodTruckFinderController {
 
     // Allows users (both customer and food truck owner) to add favorites
     @CrossOrigin
-    @PostMapping("/favorites")
+    @PostMapping("/user/favorites/add")
     public void addFavorite(@RequestParam int truck_id, HttpSession session, HttpServletResponse response) throws IOException {
         // Get the user's id in the current session
         User currentUser = (User)session.getAttribute(USER_KEY);
@@ -966,6 +966,17 @@ public class FoodTruckFinderController {
 
     }
 
+    @CrossOrigin
+    @GetMapping("/user/favorites/view")
+    public Iterable<FoodTruckFavorite> viewFavorites(HttpSession session, HttpServletResponse response) throws IOException{
+        // Get the user's id in the current session
+        User currentUser = (User)session.getAttribute(USER_KEY);
+
+        // Get all favorites where current user Id
+        return favoritesRepo.findByUserId(currentUser.getId());
+    }
+
+    @CrossOrigin
     @GetMapping("/favorites/all")
     public Iterable<FoodTruckFavorite> viewAllFavorites(){
         return favoritesRepo.findAll();
